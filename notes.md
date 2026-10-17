@@ -14,7 +14,7 @@ from the elements of $G$ to linear operators on $V$ with the following propertie
 (B1, B2: $D$ is a group homomorphism.)
 
 ### [Def] Regular representation
-- $V = \operatorname{span}\{\,|g\rangle : g \in G\,\}$, so $\dim V = |G|$
+- $V = \mathrm{span}\lbrace |g\rangle : g \in G \rbrace$, so $\dim V = |G|$
 - $\forall g_1, g_2 \in G,\ D(g_2)|g_1\rangle = |g_2 g_1\rangle$
 
 ### [Example] $Z_3$
@@ -31,25 +31,26 @@ $ab = ba = e$
 
 #### 1-dimensional representation
 
-$$
+```math
 D(e) = 1, \quad D(a) = e^{2\pi i/3}, \quad D(b) = e^{4\pi i/3}
-$$
+```
 
 #### Regular representation
 In the basis $(|e\rangle, |a\rangle, |b\rangle)$:
 
-$$
+```math
 D(e) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad
 D(a) = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}, \quad
 D(b) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}
-$$
+```
 
 ### [Def] Invariant subspace
 A linear subspace $W \subseteq V$ is $G$-invariant when
-$$
+
+```math
 \forall g \in G,\ \forall w \in W:\ D(g)w \in W
-$$
+```
 
 ### [Def] Reducible / Irreducible
-- **Reducible**: there exists a $G$-invariant subspace $W$ with $\{0\} \neq W \neq V$.
-- **Irreducible**: $V \neq \{0\}$ and the only $G$-invariant subspaces are $\{0\}$ and $V$.
+- **Reducible**: there exists a $G$-invariant subspace $W$ with $\lbrace 0 \rbrace \neq W \neq V$.
+- **Irreducible**: $V \neq \lbrace 0 \rbrace$ and the only $G$-invariant subspaces are $\lbrace 0 \rbrace$ and $V$.
