@@ -14,8 +14,8 @@ from the elements of $G$ to linear operators on $V$ with the following propertie
 (B1, B2: $D$ is a group homomorphism.)
 
 ### [Def] Regular representation
-- $V = \mathrm{span}\lbrace |g\rangle : g \in G \rbrace$, so $\dim V = |G|$
-- $\forall g_1, g_2 \in G,\ D(g_2)|g_1\rangle = |g_2 g_1\rangle$
+- $\lbrace \lvert g\rangle : g \in G \rbrace$ is an orthonormal basis of $V$, so $\dim V = \lvert G\rvert$
+- $\forall g_1, g_2 \in G,\ D(g_2)\lvert g_1\rangle = \lvert g_2 g_1\rangle$
 
 ### [Example] $Z_3$
 
@@ -36,7 +36,7 @@ D(e) = 1, \quad D(a) = e^{2\pi i/3}, \quad D(b) = e^{4\pi i/3}
 ```
 
 #### Regular representation
-In the basis $(|e\rangle, |a\rangle, |b\rangle)$:
+In the basis $(\lvert e\rangle, \lvert a\rangle, \lvert b\rangle)$:
 
 ```math
 D(e) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad
