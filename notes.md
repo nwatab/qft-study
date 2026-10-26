@@ -94,25 +94,114 @@ for every $G$-invariant subspace $W$, there exists a $G$-invariant subspace $W'$
 - Proof: later (TODO)
 
 ### [Example] Decomposition of the regular representation of $Z_3$
-$D$: regular representation of $Z_3$
+$D$: regular representation of $Z_3$.
+
 ```math
 \omega = e^{2\pi i/3}, \quad
 S = \frac{1}{3}\begin{pmatrix} 1 & 1 & 1 \\ 1 & \omega^2 & \omega \\ 1 & \omega & \omega^2 \end{pmatrix}
 ```
 
-
-
-Hence
+Then
 
 ```math
-  S^{-1} D(e)\, S = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad
-  S^{-1} D(a)\, S = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \omega & 0 \\ 0 & 0 & \omega^2 \end{pmatrix}, \quad
-  S^{-1} D(b)\, S = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \omega^2 & 0 \\ 0 & 0 & \omega \end{pmatrix}
+S^{-1} D(e)\, S = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad
+S^{-1} D(a)\, S = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \omega & 0 \\ 0 & 0 & \omega^2 \end{pmatrix}, \quad
+S^{-1} D(b)\, S = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \omega^2 & 0 \\ 0 & 0 & \omega \end{pmatrix}
 ```
 
-  $D \simeq D_1 \oplus D_2 \oplus D_3$, $\ 3 = 1 + 1 + 1$ ($D_j$ = $j$-th diagonal entry)
-  - $D_1$: trivial representation $(1, 1, 1)$
-  - $D_2$: the 1-dimensional representation above $(1, \omega, \omega^2)$
-  - $D_3$: its complex conjugate $(1, \omega^2, \omega)$
+$D \simeq D_1 \oplus D_2 \oplus D_3$, $\ 3 = 1 + 1 + 1$ ($D_j$ = $j$-th diagonal entry; values listed for $(e, a, b)$)
+- $D_1$: trivial representation $(1, 1, 1)$
+- $D_2$: the 1-dimensional representation above $(1, \omega, \omega^2)$
+- $D_3$: its complex conjugate $(1, \omega^2, \omega)$
 - Invariant subspaces = spans of the columns of $S$
 - Every block is $1 \times 1$ because $Z_3$ is abelian.
+
+### [Example] $S_3$
+$S_3$: the permutation group (symmetric group) on three objects.
+
+```math
+S_3 = \lbrace e, a_1, a_2, a_3, a_4, a_5 \rbrace, \quad
+a_1 = (1,2,3),\ a_2 = (3,2,1),\ a_3 = (1,2),\ a_4 = (2,3),\ a_5 = (3,1)
+```
+
+- Notation: $(i, j, k)$ moves the object at location $i$ to $j$, the object at $j$ to $k$, and the object at $k$ to $i$. $(i, j)$ swaps the objects at $i$ and $j$.
+- Product: $gh$ = apply $h$ first, then $g$.
+
+Multiplication table (row × column):
+
+| $\cdot$ | $e$ | $a_1$ | $a_2$ | $a_3$ | $a_4$ | $a_5$ |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| $e$ | $e$ | $a_1$ | $a_2$ | $a_3$ | $a_4$ | $a_5$ |
+| $a_1$ | $a_1$ | $a_2$ | $e$ | $a_5$ | $a_3$ | $a_4$ |
+| $a_2$ | $a_2$ | $e$ | $a_1$ | $a_4$ | $a_5$ | $a_3$ |
+| $a_3$ | $a_3$ | $a_4$ | $a_5$ | $e$ | $a_1$ | $a_2$ |
+| $a_4$ | $a_4$ | $a_5$ | $a_3$ | $a_2$ | $e$ | $a_1$ |
+| $a_5$ | $a_5$ | $a_3$ | $a_4$ | $a_1$ | $a_2$ | $e$ |
+
+#### 2-dimensional representation
+Locations 1, 2, 3 = vertices of an equilateral triangle at angles $30^\circ, 150^\circ, 270^\circ$.
+$D(g)$ = rotation or reflection of the plane that moves the objects as $g$ does.
+
+```math
+D(e) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+D(a_1) = \begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad
+D(a_2) = \begin{pmatrix} -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}
+```
+
+```math
+D(a_3) = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+D(a_4) = \begin{pmatrix} \frac{1}{2} & \frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad
+D(a_5) = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}
+```
+
+- $D(a_1)$, $D(a_2)$: rotations by $\pm 120^\circ$. $D(a_3)$, $D(a_4)$, $D(a_5)$: reflections across the line through the fixed vertex.
+
+#### [Claim] This 2-dimensional representation is irreducible
+- If it were reducible, then by complete reducibility $D \simeq D_1 \oplus D_2$ with $D_1, D_2$ 1-dimensional, so all $D(g)$ would commute.
+- But $a_1 a_3 = a_5 \neq a_4 = a_3 a_1$, so $D(a_1) D(a_3) \neq D(a_3) D(a_1)$.
+- Remark: $S_3$ also has 1-dimensional irreducible representations (e.g. the trivial one). What non-abelian means is that not every irreducible representation is 1-dimensional.
+
+### [Def] Subgroup
+$H \subseteq G$ is a subgroup of $G$ when $H$ is a group under the multiplication of $G$.
+
+### [Example] $Z_3 \subset S_3$
+$\lbrace e, a_1, a_2 \rbrace$ is a subgroup of $S_3$, isomorphic to $Z_3$ ($a_1 \mapsto a$, $a_2 \mapsto b$).
+
+### [Def] Right coset / Left coset
+Let $H$ be a subgroup of $G$ and $g \in G$.
+- Right coset: $Hg = \lbrace hg : h \in H \rbrace$
+- Left coset: $gH = \lbrace gh : h \in H \rbrace$
+
+### [Def] Normal subgroup
+A subgroup $H$ of $G$ is normal (invariant), written $H \trianglelefteq G$, when
+
+```math
+\forall g \in G:\ gH = Hg
+```
+
+Equivalent form:
+
+```math
+\forall g \in G,\ \forall h \in H:\ g h g^{-1} \in H
+```
+
+### [Def] Factor group
+If $H \trianglelefteq G$, the set of cosets $G/H = \lbrace Hg : g \in G \rbrace$ is a group under the product of sets
+$AB = \lbrace ab : a \in A,\ b \in B \rbrace$:
+
+```math
+(Hg_1)(Hg_2) = H(g_1 H)g_2 = H(H g_1)g_2 = (HH)\,g_1 g_2 = H g_1 g_2
+```
+
+- The second equality uses $g_1 H = H g_1$ (normality).
+- $HH = \lbrace h_1 h_2 : h_1, h_2 \in H \rbrace = H$:
+  - $\subseteq$: $h_1, h_2 \in H \Rightarrow h_1 h_2 \in H$ (A1 for $H$).
+  - $\supseteq$: $e \in H$, so every $h \in H$ is $h = eh \in HH$.
+Group axioms for $G/H$ (all from $(Hg_1)(Hg_2) = Hg_1g_2$):
+- A1: $(Hg_1)(Hg_2) = Hg_1g_2 \in G/H$.
+- A2: $\big((Hg_1)(Hg_2)\big)(Hg_3) = H(g_1g_2)g_3 = Hg_1(g_2g_3) = (Hg_1)\big((Hg_2)(Hg_3)\big)$, by A2 in $G$.
+- A3: the identity is $H = He$, since $(He)(Hg) = Hg = (Hg)(He)$.
+- A4: the inverse of $Hg$ is $Hg^{-1}$, since $(Hg)(Hg^{-1}) = He = (Hg^{-1})(Hg)$.
+
+### [Example] Normal subgroups of $S_3$
+- TODO
