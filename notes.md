@@ -21,6 +21,8 @@ Representations $D$ and $D'$ of $G$ on $V$ are equivalent, written $D \simeq D'$
 ```
 
 - The same $S$ is used for every $g \in G$ (a single change of basis).
+- For $D$ on $V$ and $D'$ on $V'$, equivalence needs an invertible linear $S: V' \to V$, which exists only if $\dim V = \dim V'$.
+  So representations of different dimensions are never equivalent.
 
 ### [Def] Regular representation
 - $\lbrace \lvert g\rangle : g \in G \rbrace$ is an orthonormal basis of $V$, so $\dim V = \lvert G\rvert$
@@ -63,6 +65,12 @@ A linear subspace $W \subseteq V$ is $G$-invariant when
 ### [Def] Reducible / Irreducible
 - **Reducible**: there exists a $G$-invariant subspace $W$ with $\lbrace 0 \rbrace \neq W \neq V$.
 - **Irreducible**: $V \neq \lbrace 0 \rbrace$ and the only $G$-invariant subspaces are $\lbrace 0 \rbrace$ and $V$.
+
+### [Example] $D(g) = I_n$
+Any $G$, $V = \mathbb{C}^n$, $D(g) = I_n$ for all $g \in G$ (B1, B2 hold since $I_n I_n = I_n$).
+- $n = 1$: irreducible. A 1-dimensional $V$ has no subspaces other than $\lbrace 0 \rbrace$ and $V$, so every 1-dimensional representation is irreducible.
+- $n \geq 2$: reducible. $W = \mathrm{span}\lbrace e_1 \rbrace$ satisfies $\lbrace 0 \rbrace \neq W \neq V$ and $D(g)w = w \in W$.
+- $I_1 \not\simeq I_n$ for $n \geq 2$ (different dimensions).
 
 ### [Def] Direct sum
 Let $D_1$ be a representation on $V_1$, and $D_2$ a representation on $V_2$.
@@ -160,6 +168,29 @@ D(a_5) = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2
 - If it were reducible, then by complete reducibility $D \simeq D_1 \oplus D_2$ with $D_1, D_2$ 1-dimensional, so all $D(g)$ would commute.
 - But $a_1 a_3 = a_5 \neq a_4 = a_3 a_1$, so $D(a_1) D(a_3) \neq D(a_3) D(a_1)$.
 - Remark: $S_3$ also has 1-dimensional irreducible representations (e.g. the trivial one). What non-abelian means is that not every irreducible representation is 1-dimensional.
+
+#### [Example] The irreducible representations of $S_3$
+Up to equivalence, $S_3$ has exactly 3 irreducible representations:
+
+| | $e$ | $a_1, a_2$ | $a_3, a_4, a_5$ | dim |
+|:-:|:-:|:-:|:-:|:-:|
+| trivial | $1$ | $1$ | $1$ | 1 |
+| sign | $1$ | $1$ | $-1$ | 1 |
+| 2-dimensional (above) | $I_2$ | rotations | reflections | 2 |
+
+1-dimensional ones are exactly trivial and sign. Let $D$ be 1-dimensional; numbers commute.
+- $a_3 a_4 = a_1$, $a_4 a_3 = a_2$, so $D(a_1) = D(a_3)D(a_4) = D(a_4)D(a_3) = D(a_2)$.
+- $a_1 a_1 = a_2$, so $D(a_1)^2 = D(a_2) = D(a_1)$, and $D(a_1) \neq 0$, so $D(a_1) = D(a_2) = 1$.
+- $a_3 a_3 = e$, so $D(a_3) = \pm 1$.
+- $a_1 a_3 = a_5$ and $a_1 a_5 = a_4$, so $D(a_5) = D(a_4) = D(a_3)$.
+- Sign is a representation: by the table, a product of two of $a_3, a_4, a_5$ lies in $\lbrace e, a_1, a_2 \rbrace$, and a product of one of them with one of $e, a_1, a_2$ lies in $\lbrace a_3, a_4, a_5 \rbrace$.
+
+Pairwise inequivalent:
+- trivial $\not\simeq$ sign: in 1 dimension $S^{-1} x S = x$, so equivalent means equal, and they differ at $a_3$.
+- 2-dimensional $\not\simeq$ either: different dimensions.
+
+No others:
+- $\sum_a n_a^2 = \lvert G \rvert$ over the irreducible representations ($n_a$ = dimension). Here $1^2 + 1^2 + 2^2 = 6 = \lvert S_3 \rvert$, so there is no room for another. Proof of the sum rule: later (TODO, Georgi 1.12).
 
 ### [Def] Subgroup
 $H \subseteq G$ is a subgroup of $G$ when $H$ is a group under the multiplication of $G$.
