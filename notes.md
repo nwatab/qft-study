@@ -13,6 +13,18 @@ $`V`$ を $`ℂ`$ 上のベクトル空間、$`v_1, \dots, v_k \in V`$ とする
 - A3 : $`\exists e \in G,\ \forall f \in G,\ ef = fe = f`$
 - A4 : $`\forall f \in G,\ \exists f^{-1} \in G,\ ff^{-1} = f^{-1}f = e`$
 
+### [定義] 群準同型
+$`G, H`$ を群とする。写像 $`\varphi: G \to H`$ が次を満たすとき、群準同型という。
+
+```math
+\forall g_1, g_2 \in G:\ \varphi(g_1 g_2) = \varphi(g_1)\, \varphi(g_2)
+```
+
+- 左辺の積は $`G`$ の積、右辺の積は $`H`$ の積。
+- 単位元は単位元へ移る：$`\varphi(e_G) = \varphi(e_G e_G) = \varphi(e_G)\varphi(e_G)`$ の両辺に $`\varphi(e_G)^{-1}`$ を掛けて $`\varphi(e_G) = e_H`$。
+- 逆元は逆元へ移る：$`\varphi(g)\varphi(g^{-1}) = \varphi(e_G) = e_H`$ より $`\varphi(g^{-1}) = \varphi(g)^{-1}`$。
+- 全単射な群準同型を同型という。
+
 ### [定義] 表現
 $`V`$ をベクトル空間とする。$`G`$ の $`V`$ 上の表現とは、$`G`$ の元から $`V`$ 上の線形演算子への写像 $`D`$ で、次を満たすもの：
 
