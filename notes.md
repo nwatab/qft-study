@@ -259,6 +259,50 @@ D(a_5) = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2
 他にはない：
 - 既約表現について $\sum_a n_a^2 = \lvert G \rvert$（$n_a$ = 次元）。ここでは $1^2 + 1^2 + 2^2 = 6 = \lvert S_3 \rvert$ なので、他の既約表現が入る余地はない。この和の公式の証明：後で（TODO、Georgi 1.12）。
 
+### [例] $S_3$ の表現とそのブロック対角化
+元・積・群表は上の [例] $S_3$ に従う。どの場合も $V = \mathbb{C}^n$。行列は標準基底 $(e_1, e_2, \dots)$ で書く。
+
+部品：
+- $\mathrm{2D}(g)$：上の2次元表現の行列。
+- $\mathrm{sign}(g)$：$e, a_1, a_2$ で $1$、$a_3, a_4, a_5$ で $-1$。
+- $D_{\mathrm{perm}}(g)$：$3 \times 3$ の置換行列。$D_{\mathrm{perm}}(g)\, e_i = e_{g(i)}$（$e_i$ = 頂点 $i$ にいる状態）。
+- $X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$（2つの基底の入れ替え）。
+
+| # | $V$ | $D(g)$ | 説明 |
+|---|---|---|---|
+| 1 | $\mathbb{C}^2$ | $\mathrm{2D}(g)$ | 2次元表現そのもの（既約） |
+| 2 | $\mathbb{C}^2$ | $g = e, a_1, a_2$ で $I_2$、$g = a_3, a_4, a_5$ で $X$ | 向き（左回り・右回り）の2状態。回転では変わらず、鏡映で入れ替わる |
+| 3 | $\mathbb{C}^3$ | $D_{\mathrm{perm}}(g)$ | 三角形の頂点 |
+| 4 | $\mathbb{C}^3$ | $\mathrm{sign}(g)\, D_{\mathrm{perm}}(g)$ | 三角形の頂点で、鏡映のときに符号が付く |
+| 5 | $\mathbb{C}^4$ | $\mathrm{2D}(g) \otimes \mathrm{2D}(g)$ | 2次元表現の2粒子 |
+| 6 | $\mathbb{C}^6$ | $D(g)\lvert h\rangle = \lvert g h g^{-1}\rangle$ | 基底 $\lvert h\rangle$（$h \in S_3$）への共役による作用 |
+| 7 | $\mathbb{C}^6$ | $D_{\mathrm{perm}}(g) \otimes I_2$ | 三角形の頂点 × 2準位（基底 $e_i \otimes f_n$、$n = 0, 1$） |
+| 8 | $\mathbb{C}^6$ | $D(g)\lvert h\rangle = \lvert g h\rangle$ | 正則表現 |
+
+ブロック対角化。$S$ の列を次のベクトルにとる：
+
+```math
+u_0 = \tfrac{1}{\sqrt3}(e_1 + e_2 + e_3),\quad
+u_1 = \tfrac{1}{\sqrt2}(e_1 - e_2),\quad
+u_2 = \tfrac{1}{\sqrt6}(e_1 + e_2 - 2e_3)
+```
+
+| # | $S$ の列 | $S^{-1} D(g) S$ | 分解 |
+|---|---|---|---|
+| 1 | $e_1$, $e_2$ | $\mathrm{2D}(g)$ | $\mathrm{2D}$ |
+| 2 | $e_1 + e_2$, $e_1 - e_2$ | $1 \oplus \mathrm{sign}(g)$ | $\mathrm{triv} \oplus \mathrm{sign}$ |
+| 3 | $u_0$, $u_1$, $u_2$ | $1 \oplus \mathrm{2D}(g)$ | $\mathrm{triv} \oplus \mathrm{2D}$ |
+| 4 | $u_0$, $u_2$, $-u_1$ | $\mathrm{sign}(g) \oplus \mathrm{2D}(g)$ | $\mathrm{sign} \oplus \mathrm{2D}$ |
+| 5 | $\tfrac{e_1 \otimes e_1 + e_2 \otimes e_2}{\sqrt2}$, $\tfrac{e_1 \otimes e_2 - e_2 \otimes e_1}{\sqrt2}$, $\tfrac{e_1 \otimes e_2 + e_2 \otimes e_1}{\sqrt2}$, $\tfrac{e_1 \otimes e_1 - e_2 \otimes e_2}{\sqrt2}$ | $1 \oplus \mathrm{sign}(g) \oplus \mathrm{2D}(g)$ | $\mathrm{triv} \oplus \mathrm{sign} \oplus \mathrm{2D}$ |
+| 6 | $\lvert e\rangle$, $\tfrac{\lvert a_1\rangle + \lvert a_2\rangle}{\sqrt2}$, $\tfrac{\lvert a_1\rangle - \lvert a_2\rangle}{\sqrt2}$, $\tfrac{\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt3}$, $\tfrac{\lvert a_4\rangle - \lvert a_5\rangle}{\sqrt2}$, $\tfrac{-2\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt6}$ | $1 \oplus 1 \oplus \mathrm{sign}(g) \oplus 1 \oplus \mathrm{2D}(g)$ | $3\,\mathrm{triv} \oplus \mathrm{sign} \oplus \mathrm{2D}$ |
+| 7 | $u_0 \otimes f_0$, $u_0 \otimes f_1$, $u_1 \otimes f_0$, $u_2 \otimes f_0$, $u_1 \otimes f_1$, $u_2 \otimes f_1$ | $1 \oplus 1 \oplus \mathrm{2D}(g) \oplus \mathrm{2D}(g)$ | $2\,\mathrm{triv} \oplus 2 \cdot \mathrm{2D}$ |
+| 8 | $\tfrac{1}{\sqrt6}\sum_g \lvert g\rangle$, $\tfrac{1}{\sqrt6}\sum_g \mathrm{sign}(g) \lvert g\rangle$, $\tfrac{1}{\sqrt3}\sum_g \mathrm{2D}(g)_{jk} \lvert g\rangle$（$(j,k) = (1,1), (2,1), (1,2), (2,2)$ の順） | $1 \oplus \mathrm{sign}(g) \oplus \mathrm{2D}(g) \oplus \mathrm{2D}(g)$ | $\mathrm{triv} \oplus \mathrm{sign} \oplus 2 \cdot \mathrm{2D}$ |
+
+- #2：非可換群でも、1次元の既約表現だけでできていれば完全に対角になる。
+- #3 と #4：不変部分空間は同じで、1次元の部分が $\mathrm{triv}$ か $\mathrm{sign}$ かだけが違う。
+- #6：共役類ごとに分かれる。$\lbrace e \rbrace \to \mathrm{triv}$、$\lbrace a_1, a_2 \rbrace \to \mathrm{triv} \oplus \mathrm{sign}$、$\lbrace a_3, a_4, a_5 \rbrace \to \mathrm{triv} \oplus \mathrm{2D}$。
+- #8：各既約表現が、その次元と同じ回数だけ現れる（$1 + 1 + 2 \cdot 2 = 6$）。
+
 ### [定義] 部分群
 $H \subseteq G$ が $G$ の積について群になるとき、$H$ を $G$ の部分群という。
 
