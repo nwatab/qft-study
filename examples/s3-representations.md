@@ -1,6 +1,6 @@
 # Representations of $S_3$: examples
 
-For $Z_3$, see [Example] Representations of $Z_3$ and their diagonalization in `notes.md`.
+For $Z_3$, see [例] $Z_3$ の表現とその対角化 in `notes.md`.
 
 All entries were checked numerically: each $D$ satisfies the group table, and $S^{-1} D(g) S$ has the shown form for every $g$.
 Matrices are in the standard basis $(e_1, e_2, \dots)$ (column $k$ = image of $e_k$).
