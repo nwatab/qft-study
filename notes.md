@@ -134,34 +134,55 @@ $D \simeq D_1 \oplus D_2 \oplus D_3$, $\ 3 = 1 + 1 + 1$ ($D_j$ = $j$-th diagonal
 - Every block is $1 \times 1$ because $Z_3$ is abelian.
 
 ### [Example] Representations of $Z_3$ and their diagonalization
-Each $D$ is fixed by $D(a)$: $D(e) = I$, $D(b) = D(a)^2$. Matrices are in the standard basis $(e_1, e_2, \dots)$ (column $k$ = image of $e_k$).
-$D_1, D_2, D_3$ are as above ($D(a) = 1, \omega, \omega^2$). #4 is the regular representation; #9 is the rotation by $120^\circ$.
+Each $D$ is fixed by $D(a)$: $D(e) = I$, $D(b) = D(a)^2$. $V = \mathbb{C}^n$ in every case (also for #9).
+Matrices are in the standard basis $(e_1, e_2, \dots)$ (column $k$ = image of $e_k$). $D_1, D_2, D_3$ are as above ($D(a) = 1, \omega, \omega^2$).
 
-| # | $V$ | $D(e)$ | $D(a)$ | $D(b)$ |
+Building blocks:
+
+```math
+C = \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix},\quad
+C^2 = \begin{pmatrix} -1 & 1 \\ -1 & 0 \end{pmatrix},\quad
+P = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix},\quad
+P^2 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix},\quad
+R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+```
+
+- $C$: $e_1 \mapsto e_2$, $e_2 \mapsto -e_1 - e_2$. $C^3 = I$.
+- $P$: $e_1 \mapsto e_2 \mapsto e_3 \mapsto e_1$ (the regular representation).
+- $R(2\pi/3)$: rotation by $2\pi/3$, acting on $\mathbb{C}^2$. $R(2\pi/3)^2 = R(4\pi/3)$.
+- $(\lambda)$: the $1 \times 1$ block $\lambda$.
+
+| # | $V$ | $D(a)$ | $D(b)$ | Description |
 |---|---|---|---|---|
-| 1 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}0&-1\\1&-1\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-1&1\\-1&0\end{smallmatrix}\right)$ |
-| 2 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}0&-\omega\\\omega&-\omega\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\omega^2&\omega^2\\-\omega^2&0\end{smallmatrix}\right)$ |
-| 3 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}0&-\omega^2\\\omega^2&-\omega^2\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\omega&\omega\\-\omega&0\end{smallmatrix}\right)$ |
-| 4 | $\mathbb{C}^3$ | $I_3$ | $\left(\begin{smallmatrix}0&0&1\\1&0&0\\0&1&0\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}0&1&0\\0&0&1\\1&0&0\end{smallmatrix}\right)$ |
-| 5 | $\mathbb{C}^3$ | $I_3$ | $\left(\begin{smallmatrix}0&-1&0\\1&-1&0\\0&0&\omega\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-1&1&0\\-1&0&0\\0&0&\omega^2\end{smallmatrix}\right)$ |
-| 6 | $\mathbb{C}^3$ | $I_3$ | $\left(\begin{smallmatrix}0&-\omega^2&0\\\omega^2&-\omega^2&0\\0&0&1\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\omega&\omega&0\\-\omega&0&0\\0&0&1\end{smallmatrix}\right)$ |
-| 7 | $\mathbb{C}^4$ | $I_4$ | $\left(\begin{smallmatrix}0&0&1&0\\1&0&0&0\\0&1&0&0\\0&0&0&1\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}0&1&0&0\\0&0&1&0\\1&0&0&0\\0&0&0&1\end{smallmatrix}\right)$ |
-| 8 | $\mathbb{C}^6$ | $I_6$ | $\left(\begin{smallmatrix}0&0&1&0&0&0\\1&0&0&0&0&0\\0&1&0&0&0&0\\0&0&0&0&0&1\\0&0&0&1&0&0\\0&0&0&0&1&0\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}0&1&0&0&0&0\\0&0&1&0&0&0\\1&0&0&0&0&0\\0&0&0&0&1&0\\0&0&0&0&0&1\\0&0&0&1&0&0\end{smallmatrix}\right)$ |
-| 9 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}-\tfrac12&-\tfrac{\sqrt3}{2}\\\tfrac{\sqrt3}{2}&-\tfrac12\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\tfrac12&\tfrac{\sqrt3}{2}\\-\tfrac{\sqrt3}{2}&-\tfrac12\end{smallmatrix}\right)$ |
+| 1 | $\mathbb{C}^2$ | $C$ | $C^2$ | $e_1 \mapsto e_2$, $e_2 \mapsto -e_1 - e_2$ |
+| 2 | $\mathbb{C}^2$ | $\omega C$ | $\omega^2 C^2$ | #1 multiplied by $\omega$ |
+| 3 | $\mathbb{C}^2$ | $\omega^2 C$ | $\omega C^2$ | #1 multiplied by $\omega^2$ |
+| 4 | $\mathbb{C}^3$ | $P$ | $P^2$ | cyclic permutation of $e_1, e_2, e_3$ (vertices of a triangle) |
+| 5 | $\mathbb{C}^3$ | $C \oplus (\omega)$ | $C^2 \oplus (\omega^2)$ | #1, and $e_3 \mapsto \omega e_3$ |
+| 6 | $\mathbb{C}^3$ | $\omega^2 C \oplus (1)$ | $\omega C^2 \oplus (1)$ | #3, and $e_3 \mapsto e_3$ |
+| 7 | $\mathbb{C}^4$ | $P \oplus (1)$ | $P^2 \oplus (1)$ | vertices of a triangle and its fixed center |
+| 8 | $\mathbb{C}^6$ | $P \oplus P$ | $P^2 \oplus P^2$ | two triangles rotated together |
+| 9 | $\mathbb{C}^2$ | $R(2\pi/3)$ | $R(4\pi/3)$ | rotation of the plane by $2\pi/3$ |
 
-Columns of $S$ = common eigenvectors of all $D(g)$:
+Diagonalization. $S^{-1} D(e) S = I$ in every case. Columns of $S$ = common eigenvectors of all $D(g)$:
 
-| # | $S$ | $S^{-1}D(e)S$ | $S^{-1}D(a)S$ | $S^{-1}D(b)S$ | Decomposition |
-|---|---|---|---|---|---|
-| 1 | $\left(\begin{smallmatrix}1&1\\-\omega&-\omega^2\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(\omega, \omega^2)$ | $\mathrm{diag}(\omega^2, \omega)$ | $D_2\oplus D_3$ |
-| 2 | $\left(\begin{smallmatrix}1&1\\-\omega&-\omega^2\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(\omega^2, 1)$ | $\mathrm{diag}(\omega, 1)$ | $D_3\oplus D_1$ |
-| 3 | $\left(\begin{smallmatrix}1&1\\-\omega&-\omega^2\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(1, \omega)$ | $\mathrm{diag}(1, \omega^2)$ | $D_1\oplus D_2$ |
-| 4 | $\left(\begin{smallmatrix}1&1&1\\1&\omega^2&\omega\\1&\omega&\omega^2\end{smallmatrix}\right)$ | $I_3$ | $\mathrm{diag}(1, \omega, \omega^2)$ | $\mathrm{diag}(1, \omega^2, \omega)$ | $D_1\oplus D_2\oplus D_3$ |
-| 5 | $\left(\begin{smallmatrix}1&1&0\\-\omega&-\omega^2&0\\0&0&1\end{smallmatrix}\right)$ | $I_3$ | $\mathrm{diag}(\omega, \omega^2, \omega)$ | $\mathrm{diag}(\omega^2, \omega, \omega^2)$ | $D_2\oplus D_3\oplus D_2$ |
-| 6 | $\left(\begin{smallmatrix}1&1&0\\-\omega&-\omega^2&0\\0&0&1\end{smallmatrix}\right)$ | $I_3$ | $\mathrm{diag}(1, \omega, 1)$ | $\mathrm{diag}(1, \omega^2, 1)$ | $D_1\oplus D_2\oplus D_1$ |
-| 7 | $\left(\begin{smallmatrix}1&1&1&0\\1&\omega^2&\omega&0\\1&\omega&\omega^2&0\\0&0&0&1\end{smallmatrix}\right)$ | $I_4$ | $\mathrm{diag}(1, \omega, \omega^2, 1)$ | $\mathrm{diag}(1, \omega^2, \omega, 1)$ | $D_1\oplus D_2\oplus D_3\oplus D_1$ |
-| 8 | $\left(\begin{smallmatrix}1&1&1&0&0&0\\1&\omega^2&\omega&0&0&0\\1&\omega&\omega^2&0&0&0\\0&0&0&1&1&1\\0&0&0&1&\omega^2&\omega\\0&0&0&1&\omega&\omega^2\end{smallmatrix}\right)$ | $I_6$ | $\mathrm{diag}(1, \omega, \omega^2, 1, \omega, \omega^2)$ | $\mathrm{diag}(1, \omega^2, \omega, 1, \omega^2, \omega)$ | $D_1\oplus D_2\oplus D_3\oplus D_1\oplus D_2\oplus D_3$ |
-| 9 | $\left(\begin{smallmatrix}1&1\\-i&i\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(\omega, \omega^2)$ | $\mathrm{diag}(\omega^2, \omega)$ | $D_2\oplus D_3$ |
+```math
+S_C = \begin{pmatrix} 1 & 1 \\ -\omega & -\omega^2 \end{pmatrix},\quad
+S_P = \begin{pmatrix} 1 & 1 & 1 \\ 1 & \omega^2 & \omega \\ 1 & \omega & \omega^2 \end{pmatrix},\quad
+S_R = \begin{pmatrix} 1 & 1 \\ -i & i \end{pmatrix}
+```
+
+| # | $S$ | $S^{-1}D(a)S$ | $S^{-1}D(b)S$ | Decomposition |
+|---|---|---|---|---|
+| 1 | $S_C$ | $\mathrm{diag}(\omega, \omega^2)$ | $\mathrm{diag}(\omega^2, \omega)$ | $D_2 \oplus D_3$ |
+| 2 | $S_C$ | $\mathrm{diag}(\omega^2, 1)$ | $\mathrm{diag}(\omega, 1)$ | $D_3 \oplus D_1$ |
+| 3 | $S_C$ | $\mathrm{diag}(1, \omega)$ | $\mathrm{diag}(1, \omega^2)$ | $D_1 \oplus D_2$ |
+| 4 | $S_P$ | $\mathrm{diag}(1, \omega, \omega^2)$ | $\mathrm{diag}(1, \omega^2, \omega)$ | $D_1 \oplus D_2 \oplus D_3$ |
+| 5 | $S_C \oplus (1)$ | $\mathrm{diag}(\omega, \omega^2, \omega)$ | $\mathrm{diag}(\omega^2, \omega, \omega^2)$ | $D_2 \oplus D_3 \oplus D_2$ |
+| 6 | $S_C \oplus (1)$ | $\mathrm{diag}(1, \omega, 1)$ | $\mathrm{diag}(1, \omega^2, 1)$ | $D_1 \oplus D_2 \oplus D_1$ |
+| 7 | $S_P \oplus (1)$ | $\mathrm{diag}(1, \omega, \omega^2, 1)$ | $\mathrm{diag}(1, \omega^2, \omega, 1)$ | $D_1 \oplus D_2 \oplus D_3 \oplus D_1$ |
+| 8 | $S_P \oplus S_P$ | $\mathrm{diag}(1, \omega, \omega^2, 1, \omega, \omega^2)$ | $\mathrm{diag}(1, \omega^2, \omega, 1, \omega^2, \omega)$ | $(D_1 \oplus D_2 \oplus D_3)^{\oplus 2}$ |
+| 9 | $S_R$ | $\mathrm{diag}(\omega, \omega^2)$ | $\mathrm{diag}(\omega^2, \omega)$ | $D_2 \oplus D_3$ |
 
 ### [Example] $S_3$
 $S_3$: the permutation group (symmetric group) on three objects.
