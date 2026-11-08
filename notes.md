@@ -134,7 +134,7 @@ $D \simeq D_1 \oplus D_2 \oplus D_3$, $\ 3 = 1 + 1 + 1$ ($D_j$ = $j$-th diagonal
 - Every block is $1 \times 1$ because $Z_3$ is abelian.
 
 ### [Example] Representations of $Z_3$ and their diagonalization
-Each $D$ is fixed by $D(a)$: $D(e) = I$, $D(b) = D(a)^2$. $V = \mathbb{C}^n$ in every case (also for #9).
+Each $D$ is determined by $D(a)$: $D(e) = I$, $D(b) = D(a)^2$. $V = \mathbb{C}^n$ in every case (also for #9).
 Matrices are in the standard basis $(e_1, e_2, \dots)$ (column $k$ = image of $e_k$).
 
 Irreducible representations ($V = \mathbb{C}$; an entry $\lambda$ is the map $z \mapsto \lambda z$):
