@@ -1,3 +1,12 @@
+### [Def] Span
+Let $V$ be a vector space over $\mathbb{C}$ and $v_1, \dots, v_k \in V$.
+
+```math
+\mathrm{span}\lbrace v_1, \dots, v_k \rbrace = \lbrace c_1 v_1 + \cdots + c_k v_k : c_1, \dots, c_k \in \mathbb{C} \rbrace
+```
+
+- The coefficients are taken from the same field as $V$ (here $\mathbb{C}$).
+
 ### [Def] Group
 - A1 : $\forall f, g \in G,\ fg \in G$
 - A2 : $\forall f, g, h \in G,\ f(gh) = (fg)h$
