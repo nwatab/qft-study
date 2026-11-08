@@ -1,11 +1,11 @@
 ### [定義] 張る空間（span）
-$`V`$ を $`\mathbb{C}`$ 上のベクトル空間、$`v_1, \dots, v_k \in V`$ とする。
+$`V`$ を $`ℂ`$ 上のベクトル空間、$`v_1, \dots, v_k \in V`$ とする。
 
 ```math
-\mathrm{span}\lbrace v_1, \dots, v_k \rbrace = \lbrace c_1 v_1 + \cdots + c_k v_k : c_1, \dots, c_k \in \mathbb{C} \rbrace
+\mathrm{span}\lbrace v_1, \dots, v_k \rbrace = \lbrace c_1 v_1 + \cdots + c_k v_k \mid c_1, \dots, c_k \in ℂ \rbrace
 ```
 
-- 係数は $`V`$ と同じ体（ここでは $`\mathbb{C}`$）からとる。
+- 係数は $`V`$ と同じ体（ここでは $`ℂ`$）からとる。
 
 ### [定義] 群
 - A1 : $`\forall f, g \in G,\ fg \in G`$
@@ -33,7 +33,7 @@ $`V`$ 上の $`G`$ の表現 $`D`$ と $`D'`$ は、次を満たすとき同値�
   したがって、次元の異なる表現は同値にならない。
 
 ### [定義] 正則表現
-- $`\lbrace \lvert g\rangle : g \in G \rbrace`$ は $`V`$ の正規直交基底。したがって $`\dim V = \lvert G\rvert`$
+- $`\lbrace \lvert g\rangle \mid g \in G \rbrace`$ は $`V`$ の正規直交基底。したがって $`\dim V = \lvert G\rvert`$
 - $`\forall g_1, g_2 \in G,\ D(g_2)\lvert g_1\rangle = \lvert g_2 g_1\rangle`$
 
 ### [例] $`Z_3`$
@@ -75,7 +75,7 @@ D(b) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}
 - **既約**：$`V \neq \lbrace 0 \rbrace`$ で、$`G`$ 不変部分空間は $`\lbrace 0 \rbrace`$ と $`V`$ だけである。
 
 ### [例] $`D(g) = I_n`$
-任意の $`G`$、$`V = \mathbb{C}^n`$、全ての $`g \in G`$ で $`D(g) = I_n`$（$`I_n I_n = I_n`$ なので B1, B2 を満たす）。
+任意の $`G`$、$`V = ℂ^n`$、全ての $`g \in G`$ で $`D(g) = I_n`$（$`I_n I_n = I_n`$ なので B1, B2 を満たす）。
 - $`n = 1`$：既約。1次元の $`V`$ には $`\lbrace 0 \rbrace`$ と $`V`$ 以外の部分空間がないので、1次元の表現はすべて既約である。
 - $`n \geq 2`$：可約。$`W = \mathrm{span}\lbrace e_1 \rbrace`$ は $`\lbrace 0 \rbrace \neq W \neq V`$ を満たし、$`D(g)w = w \in W`$。
 - $`n \geq 2`$ のとき $`I_1 \not\simeq I_n`$（次元が違う）。
@@ -101,7 +101,7 @@ $`D`$ が既約表現の直和と同値であるとき、$`D`$ は完全可約�
 任意の $`G`$ 不変部分空間 $`W`$ に対して、$`V = W \oplus W'`$ となる $`G`$ 不変部分空間 $`W'`$ が存在する。
 
 - 注意：可約 $`\not\Rightarrow`$ 完全可約。
-  反例：$`G = (\mathbb{R}, +)`$、$`V = \mathbb{C}^2`$、$`D(x) = \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix}`$。
+  反例：$`G = (ℝ, +)`$、$`V = ℂ^2`$、$`D(x) = \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix}`$。
   $`W = \mathrm{span}\lbrace (1,0)^T \rbrace`$ は不変。
   $`\beta \neq 0`$ である他の直線 $`\mathrm{span}\lbrace (\alpha, \beta)^T \rbrace`$ は不変でない：
   $`x \neq 0`$ のとき $`D(x)(\alpha, \beta)^T = (\alpha + x\beta, \beta)^T \notin \mathrm{span}\lbrace (\alpha, \beta)^T \rbrace`$。
@@ -133,10 +133,10 @@ $`D \simeq D_1 \oplus D_2 \oplus D_3`$、$`\ 3 = 1 + 1 + 1`$（$`D_j`$ = $`j`$ �
 - $`Z_3`$ は可換なので、ブロックは全て $`1 \times 1`$。
 
 ### [例] $`Z_3`$ の表現とその対角化
-各 $`D`$ は $`D(a)`$ で決まる：$`D(e) = I`$、$`D(b) = D(a)^2`$。どの場合も $`V = \mathbb{C}^n`$（#9 も同じ）。
+各 $`D`$ は $`D(a)`$ で決まる：$`D(e) = I`$、$`D(b) = D(a)^2`$。どの場合も $`V = ℂ^n`$（#9 も同じ）。
 行列は標準基底 $`(e_1, e_2, \dots)`$ で書く（$`k`$ 列目 = $`e_k`$ の行き先）。
 
-既約表現（$`V = \mathbb{C}`$。成分 $`\lambda`$ は写像 $`z \mapsto \lambda z`$ を表す）：
+既約表現（$`V = ℂ`$。成分 $`\lambda`$ は写像 $`z \mapsto \lambda z`$ を表す）：
 
 | 名前 | $`e`$ | $`a`$ | $`b`$ | 説明 |
 |---|---|---|---|---|
@@ -156,20 +156,20 @@ R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta 
 
 - $`C`$：$`e_1 \mapsto e_2`$、$`e_2 \mapsto -e_1 - e_2`$。$`C^3 = I`$。
 - $`P`$：$`e_1 \mapsto e_2 \mapsto e_3 \mapsto e_1`$（正則表現）。
-- $`R(2\pi/3)`$：$`2\pi/3`$ の回転。$`\mathbb{C}^2`$ に作用する。$`R(2\pi/3)^2 = R(4\pi/3)`$。
+- $`R(2\pi/3)`$：$`2\pi/3`$ の回転。$`ℂ^2`$ に作用する。$`R(2\pi/3)^2 = R(4\pi/3)`$。
 - $`(\lambda)`$：$`1 \times 1`$ のブロック $`\lambda`$。
 
 | # | $`V`$ | $`D(a)`$ | $`D(b)`$ | 説明 |
 |---|---|---|---|---|
-| 1 | $`\mathbb{C}^2`$ | $`C`$ | $`C^2`$ | $`e_1 \mapsto e_2`$、$`e_2 \mapsto -e_1 - e_2`$ |
-| 2 | $`\mathbb{C}^2`$ | $`\omega C`$ | $`\omega^2 C^2`$ | #1 を $`\omega`$ 倍 |
-| 3 | $`\mathbb{C}^2`$ | $`\omega^2 C`$ | $`\omega C^2`$ | #1 を $`\omega^2`$ 倍 |
-| 4 | $`\mathbb{C}^3`$ | $`P`$ | $`P^2`$ | $`e_1, e_2, e_3`$ の巡回置換（三角形の頂点） |
-| 5 | $`\mathbb{C}^3`$ | $`C \oplus (\omega)`$ | $`C^2 \oplus (\omega^2)`$ | #1 と、$`e_3 \mapsto \omega e_3`$ |
-| 6 | $`\mathbb{C}^3`$ | $`\omega^2 C \oplus (1)`$ | $`\omega C^2 \oplus (1)`$ | #3 と、$`e_3 \mapsto e_3`$ |
-| 7 | $`\mathbb{C}^4`$ | $`P \oplus (1)`$ | $`P^2 \oplus (1)`$ | 三角形の頂点と、動かない中心 |
-| 8 | $`\mathbb{C}^6`$ | $`P \oplus P`$ | $`P^2 \oplus P^2`$ | 2つの三角形を同時に回す |
-| 9 | $`\mathbb{C}^2`$ | $`R(2\pi/3)`$ | $`R(4\pi/3)`$ | 平面の $`2\pi/3`$ 回転 |
+| 1 | $`ℂ^2`$ | $`C`$ | $`C^2`$ | $`e_1 \mapsto e_2`$、$`e_2 \mapsto -e_1 - e_2`$ |
+| 2 | $`ℂ^2`$ | $`\omega C`$ | $`\omega^2 C^2`$ | #1 を $`\omega`$ 倍 |
+| 3 | $`ℂ^2`$ | $`\omega^2 C`$ | $`\omega C^2`$ | #1 を $`\omega^2`$ 倍 |
+| 4 | $`ℂ^3`$ | $`P`$ | $`P^2`$ | $`e_1, e_2, e_3`$ の巡回置換（三角形の頂点） |
+| 5 | $`ℂ^3`$ | $`C \oplus (\omega)`$ | $`C^2 \oplus (\omega^2)`$ | #1 と、$`e_3 \mapsto \omega e_3`$ |
+| 6 | $`ℂ^3`$ | $`\omega^2 C \oplus (1)`$ | $`\omega C^2 \oplus (1)`$ | #3 と、$`e_3 \mapsto e_3`$ |
+| 7 | $`ℂ^4`$ | $`P \oplus (1)`$ | $`P^2 \oplus (1)`$ | 三角形の頂点と、動かない中心 |
+| 8 | $`ℂ^6`$ | $`P \oplus P`$ | $`P^2 \oplus P^2`$ | 2つの三角形を同時に回す |
+| 9 | $`ℂ^2`$ | $`R(2\pi/3)`$ | $`R(4\pi/3)`$ | 平面の $`2\pi/3`$ 回転 |
 
 対角化。どの場合も $`S^{-1} D(e) S = I`$。$`S`$ の列 = 全ての $`D(g)`$ に共通の固有ベクトル：
 
@@ -260,7 +260,7 @@ D(a_5) = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2
 - 既約表現について $`\sum_a n_a^2 = \lvert G \rvert`$（$`n_a`$ = 次元）。ここでは $`1^2 + 1^2 + 2^2 = 6 = \lvert S_3 \rvert`$ なので、他の既約表現が入る余地はない。この和の公式の証明：後で（TODO、Georgi 1.12）。
 
 ### [例] $`S_3`$ の表現とそのブロック対角化
-元・積・群表は上の [例] $`S_3`$ に従う。どの場合も $`V = \mathbb{C}^n`$。行列は標準基底 $`(e_1, e_2, \dots)`$ で書く。
+元・積・群表は上の [例] $`S_3`$ に従う。どの場合も $`V = ℂ^n`$。行列は標準基底 $`(e_1, e_2, \dots)`$ で書く。
 
 部品：
 - $`\mathrm{2D}(g)`$：上の2次元表現の行列。
@@ -270,14 +270,14 @@ D(a_5) = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2
 
 | # | $`V`$ | $`D(g)`$ | 説明 |
 |---|---|---|---|
-| 1 | $`\mathbb{C}^2`$ | $`\mathrm{2D}(g)`$ | 2次元表現そのもの（既約） |
-| 2 | $`\mathbb{C}^2`$ | $`g = e, a_1, a_2`$ で $`I_2`$、$`g = a_3, a_4, a_5`$ で $`X`$ | 向き（左回り・右回り）の2状態。回転では変わらず、鏡映で入れ替わる |
-| 3 | $`\mathbb{C}^3`$ | $`D_{\mathrm{perm}}(g)`$ | 三角形の頂点 |
-| 4 | $`\mathbb{C}^3`$ | $`\mathrm{sign}(g)\, D_{\mathrm{perm}}(g)`$ | 三角形の頂点で、鏡映のときに符号が付く |
-| 5 | $`\mathbb{C}^4`$ | $`\mathrm{2D}(g) \otimes \mathrm{2D}(g)`$ | 2次元表現の2粒子 |
-| 6 | $`\mathbb{C}^6`$ | $`D(g)\lvert h\rangle = \lvert g h g^{-1}\rangle`$ | 基底 $`\lvert h\rangle`$（$`h \in S_3`$）への共役による作用 |
-| 7 | $`\mathbb{C}^6`$ | $`D_{\mathrm{perm}}(g) \otimes I_2`$ | 三角形の頂点 × 2準位（基底 $`e_i \otimes f_n`$、$`n = 0, 1`$） |
-| 8 | $`\mathbb{C}^6`$ | $`D(g)\lvert h\rangle = \lvert g h\rangle`$ | 正則表現 |
+| 1 | $`ℂ^2`$ | $`\mathrm{2D}(g)`$ | 2次元表現そのもの（既約） |
+| 2 | $`ℂ^2`$ | $`g = e, a_1, a_2`$ で $`I_2`$、$`g = a_3, a_4, a_5`$ で $`X`$ | 向き（左回り・右回り）の2状態。回転では変わらず、鏡映で入れ替わる |
+| 3 | $`ℂ^3`$ | $`D_{\mathrm{perm}}(g)`$ | 三角形の頂点 |
+| 4 | $`ℂ^3`$ | $`\mathrm{sign}(g)\, D_{\mathrm{perm}}(g)`$ | 三角形の頂点で、鏡映のときに符号が付く |
+| 5 | $`ℂ^4`$ | $`\mathrm{2D}(g) \otimes \mathrm{2D}(g)`$ | 2次元表現の2粒子 |
+| 6 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h g^{-1}\rangle`$ | 基底 $`\lvert h\rangle`$（$`h \in S_3`$）への共役による作用 |
+| 7 | $`ℂ^6`$ | $`D_{\mathrm{perm}}(g) \otimes I_2`$ | 三角形の頂点 × 2準位（基底 $`e_i \otimes f_n`$、$`n = 0, 1`$） |
+| 8 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h\rangle`$ | 正則表現 |
 
 ブロック対角化。$`S`$ の列を次のベクトルにとる：
 
@@ -311,8 +311,8 @@ $`\lbrace e, a_1, a_2 \rbrace`$ は $`S_3`$ の部分群で、$`Z_3`$ と同型�
 
 ### [定義] 右剰余類 / 左剰余類
 $`H`$ を $`G`$ の部分群、$`g \in G`$ とする。
-- 右剰余類：$`Hg = \lbrace hg : h \in H \rbrace`$
-- 左剰余類：$`gH = \lbrace gh : h \in H \rbrace`$
+- 右剰余類：$`Hg = \lbrace hg \mid h \in H \rbrace`$
+- 左剰余類：$`gH = \lbrace gh \mid h \in H \rbrace`$
 
 ### [定義] 正規部分群
 $`G`$ の部分群 $`H`$ は、次を満たすとき正規部分群（不変部分群）であるといい、$`H \trianglelefteq G`$ と書く。
@@ -328,15 +328,15 @@ $`G`$ の部分群 $`H`$ は、次を満たすとき正規部分群（不変部�
 ```
 
 ### [定義] 剰余群
-$`H \trianglelefteq G`$ のとき、剰余類の集合 $`G/H = \lbrace Hg : g \in G \rbrace`$ は、集合の積
-$`AB = \lbrace ab : a \in A,\ b \in B \rbrace`$ について群になる：
+$`H \trianglelefteq G`$ のとき、剰余類の集合 $`G/H = \lbrace Hg \mid g \in G \rbrace`$ は、集合の積
+$`AB = \lbrace ab \mid a \in A,\ b \in B \rbrace`$ について群になる：
 
 ```math
 (Hg_1)(Hg_2) = H(g_1 H)g_2 = H(H g_1)g_2 = (HH)\,g_1 g_2 = H g_1 g_2
 ```
 
 - 2つ目の等号で $`g_1 H = H g_1`$（正規性）を使う。
-- $`HH = \lbrace h_1 h_2 : h_1, h_2 \in H \rbrace = H`$：
+- $`HH = \lbrace h_1 h_2 \mid h_1, h_2 \in H \rbrace = H`$：
   - $`\subseteq`$：$`h_1, h_2 \in H \Rightarrow h_1 h_2 \in H`$（$`H`$ についての A1）。
   - $`\supseteq`$：$`e \in H`$ なので、全ての $`h \in H`$ は $`h = eh \in HH`$。
 $`G/H`$ の群の公理（どれも $`(Hg_1)(Hg_2) = Hg_1g_2`$ から従う）：
