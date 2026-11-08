@@ -124,6 +124,36 @@ $D \simeq D_1 \oplus D_2 \oplus D_3$, $\ 3 = 1 + 1 + 1$ ($D_j$ = $j$-th diagonal
 - Invariant subspaces = spans of the columns of $S$
 - Every block is $1 \times 1$ because $Z_3$ is abelian.
 
+### [Example] Representations of $Z_3$ and their diagonalization
+Each $D$ is fixed by $D(a)$: $D(e) = I$, $D(b) = D(a)^2$. Matrices are in the standard basis $(e_1, e_2, \dots)$ (column $k$ = image of $e_k$).
+$D_1, D_2, D_3$ are as above ($D(a) = 1, \omega, \omega^2$). #4 is the regular representation; #9 is the rotation by $120^\circ$.
+
+| # | $V$ | $D(e)$ | $D(a)$ | $D(b)$ |
+|---|---|---|---|---|
+| 1 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}0&-1\\1&-1\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-1&1\\-1&0\end{smallmatrix}\right)$ |
+| 2 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}0&-\omega\\\omega&-\omega\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\omega^2&\omega^2\\-\omega^2&0\end{smallmatrix}\right)$ |
+| 3 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}0&-\omega^2\\\omega^2&-\omega^2\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\omega&\omega\\-\omega&0\end{smallmatrix}\right)$ |
+| 4 | $\mathbb{C}^3$ | $I_3$ | $\left(\begin{smallmatrix}0&0&1\\1&0&0\\0&1&0\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}0&1&0\\0&0&1\\1&0&0\end{smallmatrix}\right)$ |
+| 5 | $\mathbb{C}^3$ | $I_3$ | $\left(\begin{smallmatrix}0&-1&0\\1&-1&0\\0&0&\omega\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-1&1&0\\-1&0&0\\0&0&\omega^2\end{smallmatrix}\right)$ |
+| 6 | $\mathbb{C}^3$ | $I_3$ | $\left(\begin{smallmatrix}0&-\omega^2&0\\\omega^2&-\omega^2&0\\0&0&1\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\omega&\omega&0\\-\omega&0&0\\0&0&1\end{smallmatrix}\right)$ |
+| 7 | $\mathbb{C}^4$ | $I_4$ | $\left(\begin{smallmatrix}0&0&1&0\\1&0&0&0\\0&1&0&0\\0&0&0&1\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}0&1&0&0\\0&0&1&0\\1&0&0&0\\0&0&0&1\end{smallmatrix}\right)$ |
+| 8 | $\mathbb{C}^6$ | $I_6$ | $\left(\begin{smallmatrix}0&0&1&0&0&0\\1&0&0&0&0&0\\0&1&0&0&0&0\\0&0&0&0&0&1\\0&0&0&1&0&0\\0&0&0&0&1&0\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}0&1&0&0&0&0\\0&0&1&0&0&0\\1&0&0&0&0&0\\0&0&0&0&1&0\\0&0&0&0&0&1\\0&0&0&1&0&0\end{smallmatrix}\right)$ |
+| 9 | $\mathbb{C}^2$ | $I_2$ | $\left(\begin{smallmatrix}-\tfrac12&-\tfrac{\sqrt3}{2}\\\tfrac{\sqrt3}{2}&-\tfrac12\end{smallmatrix}\right)$ | $\left(\begin{smallmatrix}-\tfrac12&\tfrac{\sqrt3}{2}\\-\tfrac{\sqrt3}{2}&-\tfrac12\end{smallmatrix}\right)$ |
+
+Columns of $S$ = common eigenvectors of all $D(g)$:
+
+| # | $S$ | $S^{-1}D(e)S$ | $S^{-1}D(a)S$ | $S^{-1}D(b)S$ | Decomposition |
+|---|---|---|---|---|---|
+| 1 | $\left(\begin{smallmatrix}1&1\\-\omega&-\omega^2\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(\omega, \omega^2)$ | $\mathrm{diag}(\omega^2, \omega)$ | $D_2\oplus D_3$ |
+| 2 | $\left(\begin{smallmatrix}1&1\\-\omega&-\omega^2\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(\omega^2, 1)$ | $\mathrm{diag}(\omega, 1)$ | $D_3\oplus D_1$ |
+| 3 | $\left(\begin{smallmatrix}1&1\\-\omega&-\omega^2\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(1, \omega)$ | $\mathrm{diag}(1, \omega^2)$ | $D_1\oplus D_2$ |
+| 4 | $\left(\begin{smallmatrix}1&1&1\\1&\omega^2&\omega\\1&\omega&\omega^2\end{smallmatrix}\right)$ | $I_3$ | $\mathrm{diag}(1, \omega, \omega^2)$ | $\mathrm{diag}(1, \omega^2, \omega)$ | $D_1\oplus D_2\oplus D_3$ |
+| 5 | $\left(\begin{smallmatrix}1&1&0\\-\omega&-\omega^2&0\\0&0&1\end{smallmatrix}\right)$ | $I_3$ | $\mathrm{diag}(\omega, \omega^2, \omega)$ | $\mathrm{diag}(\omega^2, \omega, \omega^2)$ | $D_2\oplus D_3\oplus D_2$ |
+| 6 | $\left(\begin{smallmatrix}1&1&0\\-\omega&-\omega^2&0\\0&0&1\end{smallmatrix}\right)$ | $I_3$ | $\mathrm{diag}(1, \omega, 1)$ | $\mathrm{diag}(1, \omega^2, 1)$ | $D_1\oplus D_2\oplus D_1$ |
+| 7 | $\left(\begin{smallmatrix}1&1&1&0\\1&\omega^2&\omega&0\\1&\omega&\omega^2&0\\0&0&0&1\end{smallmatrix}\right)$ | $I_4$ | $\mathrm{diag}(1, \omega, \omega^2, 1)$ | $\mathrm{diag}(1, \omega^2, \omega, 1)$ | $D_1\oplus D_2\oplus D_3\oplus D_1$ |
+| 8 | $\left(\begin{smallmatrix}1&1&1&0&0&0\\1&\omega^2&\omega&0&0&0\\1&\omega&\omega^2&0&0&0\\0&0&0&1&1&1\\0&0&0&1&\omega^2&\omega\\0&0&0&1&\omega&\omega^2\end{smallmatrix}\right)$ | $I_6$ | $\mathrm{diag}(1, \omega, \omega^2, 1, \omega, \omega^2)$ | $\mathrm{diag}(1, \omega^2, \omega, 1, \omega^2, \omega)$ | $D_1\oplus D_2\oplus D_3\oplus D_1\oplus D_2\oplus D_3$ |
+| 9 | $\left(\begin{smallmatrix}1&1\\-i&i\end{smallmatrix}\right)$ | $I_2$ | $\mathrm{diag}(\omega, \omega^2)$ | $\mathrm{diag}(\omega^2, \omega)$ | $D_2\oplus D_3$ |
+
 ### [Example] $S_3$
 $S_3$: the permutation group (symmetric group) on three objects.
 
