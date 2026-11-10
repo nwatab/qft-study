@@ -238,95 +238,129 @@ a_1 = (1,2,3),\ a_2 = (3,2,1),\ a_3 = (1,2),\ a_4 = (2,3),\ a_5 = (3,1)
 
 非可換群である。表は、行 × 列の順番で読む。
 
-#### 2次元表現
-位置 1, 2, 3 = 角度 $`30^\circ, 150^\circ, 270^\circ`$ にある正三角形の頂点。
-$`D(g)`$ = $`g`$ と同じように物を移す、平面の回転または鏡映。
+### [例] $S_3$ の$\mathbb{C}^2$上の表現
+
+表現空間は $`V = \mathbb{C}^2`$、基底は標準基底 $`e_1, e_2`$。
+
+三箇所の位置を、角度 $`30^\circ, 150^\circ, 270^\circ`$ にある正三角形の頂点 $`v_1, v_2, v_3`$ に対応させる。$`D(g)`$ は $`v_i \mapsto v_{g(i)}`$ となる回転または鏡映。
+
+以下の3つのベクトル
 
 ```math
-D(e) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
-D(a_1) = \begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad
-D(a_2) = \begin{pmatrix} -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}
+\begin{aligned}
+v_1 &= \tfrac{\sqrt{3}}{2} e_1 + \tfrac{1}{2} e_2 \\
+v_2 &= -\tfrac{\sqrt{3}}{2} e_1 + \tfrac{1}{2} e_2 \\
+v_3 &= -e_2
+\end{aligned}
 ```
 
-```math
-D(a_3) = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
-D(a_4) = \begin{pmatrix} \frac{1}{2} & \frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad
-D(a_5) = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}
-```
+をとる。正三角形の頂点であり、 $`v_1 + v_2 + v_3 = 0`$ を満たす。
 
-- $`D(a_1)`$, $`D(a_2)`$：$`\pm 120^\circ`$ の回転。$`D(a_3)`$, $`D(a_4)`$, $`D(a_5)`$：動かない頂点を通る直線についての鏡映。
+この表現は、準同型性 $`D(g)D(h) = D(gh)`$ を保つ。合同変換の合成は、頂点の置換の合成に対応するので成り立つ。
 
-#### [主張] この2次元表現は既約
-- 可約だとすると、完全可約性から $`D \simeq D_1 \oplus D_2`$（$`D_1, D_2`$ は1次元）となり、全ての $`D(g)`$ が可換になる。
+表: $Z_3$ の表現の例
+| $`g`$ | 置換 | 幾何 | $`D(g)`$ | $`D(g)v_1`$ | $`D(g)v_2`$ | $`D(g)v_3`$ |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| $`e`$ | 恒等 | 恒等 | $`\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}`$ | $`v_1`$ | $`v_2`$ | $`v_3`$ |
+| $`a_1`$ | $`1\to2\to3\to1`$ | $`+120^\circ`$ 回転 | $`\begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}`$ | $`v_2`$ | $`v_3`$ | $`v_1`$ |
+| $`a_2`$ | $`3\to2\to1\to3`$ | $`-120^\circ`$ 回転 | $`\begin{pmatrix} -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}`$ | $`v_3`$ | $`v_1`$ | $`v_2`$ |
+| $`a_3`$ | $`1\leftrightarrow2`$ | $`v_3`$ を通る直線で鏡映 | $`\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}`$ | $`v_2`$ | $`v_1`$ | $`v_3`$ |
+| $`a_4`$ | $`2\leftrightarrow3`$ | $`v_1`$ を通る直線で鏡映 | $`\begin{pmatrix} \frac{1}{2} & \frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}`$ | $`v_1`$ | $`v_3`$ | $`v_2`$ |
+| $`a_5`$ | $`3\leftrightarrow1`$ | $`v_2`$ を通る直線で鏡映 | $`\begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}`$ | $`v_3`$ | $`v_2`$ | $`v_1`$ |
+
+
+この2次元表現は既約である。
+- もし、可約だとすると、完全可約性から $`D \simeq D_1 \oplus D_2`$（$`D_1, D_2`$ は1次元）となり、全ての $`D(g)`$ が可換になる。
 - しかし $`a_1 a_3 = a_5 \neq a_4 = a_3 a_1`$ なので、$`D(a_1) D(a_3) \neq D(a_3) D(a_1)`$。
-- 注意：$`S_3`$ にも1次元の既約表現はある（自明表現など）。非可換であることが意味するのは、既約表現が全て1次元とは限らないということ。
 
-#### [例] $`S_3`$ の既約表現
-同値を除いて、$`S_3`$ の既約表現はちょうど3つ。名前は $`D_{S_3,\mathrm{triv}}`$、$`D_{S_3,\mathrm{sign}}`$、$`D_{S_3,\mathrm{2D}}`$ とし、$`S_3`$ の節ではそれぞれ triv、sign、2D と略す（$`Z_3`$ の $`D_{Z_3,k}`$ とは別物）。
+なお、注意が必要。$`S_3`$ にも1次元の既約表現はある（自明表現など）。非可換であることが意味するのは、既約表現が全て1次元とは限らないということである。
+
+#### [例] $`S_3`$ の3つの既約表現
+同値を除いて、$`S_3`$ の既約表現はちょうど3つ。次元で名付け、同じ次元のものはプライムで区別する：$`\mathbf{1}`$（自明表現）、$`\mathbf{1}'`$（符号表現）、$`\mathbf{2}`$（標準表現、上の2次元表現）。表現行列は $`D_{\mathbf{1}}, D_{\mathbf{1}'}, D_{\mathbf{2}}`$ と書く。
 
 | | $`e`$ | $`a_1, a_2`$ | $`a_3, a_4, a_5`$ | 次元 |
 |:-:|:-:|:-:|:-:|:-:|
-| 自明表現（triv） | $`1`$ | $`1`$ | $`1`$ | 1 |
-| 符号表現（sign） | $`1`$ | $`1`$ | $`-1`$ | 1 |
-| 2次元表現（2D、上のもの） | $`I_2`$ | 回転 | 鏡映 | 2 |
+| $`\mathbf{1}`$（自明表現） | $`1`$ | $`1`$ | $`1`$ | 1 |
+| $`\mathbf{1}'`$（符号表現） | $`1`$ | $`1`$ | $`-1`$ | 1 |
+| $`\mathbf{2}`$（標準表現） | $`I_2`$ | 回転 | 鏡映 | 2 |
 
-1次元のものは自明表現と符号表現に限る。$`D`$ を1次元とする（数は可換）。
+1次元の既約表現は $`\mathbf{1}`$ と $`\mathbf{1}'`$ に限る。
+
+証明：$`D`$ を任意の1次元表現とする（1次元なので自動的に既約）。$`D(g)`$ は0でない数であり、数どうしは可換。以下で、
+(i) $`D`$ は $`D_{\mathbf{1}}`$ か $`D_{\mathbf{1}'}`$ のどちらかに一致すること、(ii) その2つが実際に表現であること、を示す。
+
+(i) 候補を絞る：
+- $`e e = e`$ なので $`D(e)^2 = D(e)`$。$`D(e) \neq 0`$ なので $`D(e) = 1`$。
 - $`a_3 a_4 = a_1`$、$`a_4 a_3 = a_2`$ なので、$`D(a_1) = D(a_3)D(a_4) = D(a_4)D(a_3) = D(a_2)`$。
 - $`a_1 a_1 = a_2`$ なので $`D(a_1)^2 = D(a_2) = D(a_1)`$。$`D(a_1) \neq 0`$ なので $`D(a_1) = D(a_2) = 1`$。
-- $`a_3 a_3 = e`$ なので $`D(a_3) = \pm 1`$。
+- $`a_3 a_3 = e`$ なので $`D(a_3)^2 = 1`$、すなわち $`D(a_3) = \pm 1`$。
 - $`a_1 a_3 = a_5`$、$`a_1 a_5 = a_4`$ なので $`D(a_5) = D(a_4) = D(a_3)`$。
-- 符号表現が表現であること：群表より、$`a_3, a_4, a_5`$ のうち2つの積は $`\lbrace e, a_1, a_2 \rbrace`$ に入り、そのうち1つと $`e, a_1, a_2`$ のどれかとの積は $`\lbrace a_3, a_4, a_5 \rbrace`$ に入る。
+- 以上より、$`D(a_3) = 1`$ なら $`D = D_{\mathbf{1}}`$、$`D(a_3) = -1`$ なら $`D = D_{\mathbf{1}'}`$。
 
-どの2つも同値でない：
-- 自明表現 $`\not\simeq`$ 符号表現：1次元では $`S^{-1} x S = x`$ なので、同値とは等しいことであり、2つは $`a_3`$ で値が違う。
-- 2次元表現はどちらとも同値でない：次元が違う。
+(ii) 2つの候補が表現であること：
+- $`\mathbf{1}`$：全ての値が $`1`$ なので、$`D(gh) = D(g)D(h)`$ は自明に成り立つ。
+- $`\mathbf{1}'`$：$`H = \lbrace e, a_1, a_2 \rbrace`$、$`K = \lbrace a_3, a_4, a_5 \rbrace`$ とおく。群表より $`HH \subset H`$、$`HK \subset K`$、$`KH \subset K`$、$`KK \subset H`$ が成り立つ。これは値の積の規則 $`1 \cdot 1 = 1`$、$`1 \cdot (-1) = (-1) \cdot 1 = -1`$、$`(-1)(-1) = 1`$ と一致する。
 
-他にはない：
+3つの規約表現のうち、どの2つも同値でない：
+- $`\mathbf{1} \not\simeq \mathbf{1}'`$：1次元では $`S^{-1} x S = x`$ なので、同値とは等しいことであり、2つは $`a_3`$ で値が違う。
+- $`\mathbf{2}`$ はどちらとも同値でない：次元が違う。
+
+他にはないこと：
 - 既約表現について $`\sum_a n_a^2 = \lvert G \rvert`$（$`n_a`$ = 次元）。ここでは $`1^2 + 1^2 + 2^2 = 6 = \lvert S_3 \rvert`$ なので、他の既約表現が入る余地はない。この和の公式の証明：後で（TODO、Georgi 1.12）。
 
-### [例] $`S_3`$ の表現とそのブロック対角化
-元・積・群表は上の [例] $`S_3`$ に従う。triv、sign、2D は $`S_3`$ の既約表現 $`D_{S_3,\mathrm{triv}}`$、$`D_{S_3,\mathrm{sign}}`$、$`D_{S_3,\mathrm{2D}}`$ を表す。どの場合も $`V = ℂ^n`$。行列は標準基底 $`(e_1, e_2, \dots)`$ で書く。
+### [例] $`S_3`$ の表現とその規約分解
+元・積・群表は上の [例] $`S_3`$ に従う。$`\mathbf{1}`$、$`\mathbf{1}'`$、$`\mathbf{2}`$ は $`S_3`$ の既約表現（上の [例] $`S_3`$ の既約表現）。どの場合も $`V = ℂ^n`$。行列は標準基底 $`(e_1, e_2, \dots)`$ で書く。
 
-部品：
-- $`\mathrm{2D}(g)`$：上の2次元表現の行列。
-- $`\mathrm{sign}(g)`$：$`e, a_1, a_2`$ で $`1`$、$`a_3, a_4, a_5`$ で $`-1`$。
+以下で使う記号と規約：
+- $`D_{\mathbf{2}}(g)`$：上の $`\mathbf{2}`$ の行列。
+- $`D_{\mathbf{1}'}(g)`$：$`e, a_1, a_2`$ で $`1`$、$`a_3, a_4, a_5`$ で $`-1`$。
 - $`D_{\mathrm{perm}}(g)`$：$`3 \times 3`$ の置換行列。$`D_{\mathrm{perm}}(g)\, e_i = e_{g(i)}`$（$`e_i`$ = 頂点 $`i`$ にいる状態）。
 - $`X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}`$（2つの基底の入れ替え）。
+- $`ℂ^4 = ℂ^2 \otimes ℂ^2`$ の基底の順序：$`e_1 \otimes e_1,\ e_1 \otimes e_2,\ e_2 \otimes e_1,\ e_2 \otimes e_2`$。
 
 | # | $`V`$ | $`D(g)`$ | 説明 |
 |---|---|---|---|
-| 1 | $`ℂ^2`$ | $`\mathrm{2D}(g)`$ | 2次元表現そのもの（既約） |
+| 1 | $`ℂ^2`$ | $`D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ そのもの（既約） |
 | 2 | $`ℂ^2`$ | $`g = e, a_1, a_2`$ で $`I_2`$、$`g = a_3, a_4, a_5`$ で $`X`$ | 向き（左回り・右回り）の2状態。回転では変わらず、鏡映で入れ替わる |
 | 3 | $`ℂ^3`$ | $`D_{\mathrm{perm}}(g)`$ | 三角形の頂点 |
-| 4 | $`ℂ^3`$ | $`\mathrm{sign}(g)\, D_{\mathrm{perm}}(g)`$ | 三角形の頂点で、鏡映のときに符号が付く |
-| 5 | $`ℂ^4`$ | $`\mathrm{2D}(g) \otimes \mathrm{2D}(g)`$ | 2次元表現の2粒子 |
+| 4 | $`ℂ^3`$ | $`D_{\mathbf{1}'}(g)\, D_{\mathrm{perm}}(g)`$ | 三角形の頂点で、鏡映のときに符号が付く |
+| 5 | $`ℂ^4`$ | $`D_{\mathbf{2}}(g) \otimes D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ の2粒子（$`\mathbf{2} \otimes \mathbf{2}`$） |
 | 6 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h g^{-1}\rangle`$ | 基底 $`\lvert h\rangle`$（$`h \in S_3`$）への共役による作用 |
 | 7 | $`ℂ^6`$ | $`D_{\mathrm{perm}}(g) \otimes I_2`$ | 三角形の頂点 × 2準位（基底 $`e_i \otimes f_n`$、$`n = 0, 1`$） |
 | 8 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h\rangle`$ | 正則表現 |
 
-ブロック対角化。$`S`$ の列を次のベクトルにとる：
+それぞれの規約分解を考える。$`S`$ は列ベクトルを横に並べた行列である。以下で用いるベクトル：
 
 ```math
-u_0 = \tfrac{1}{\sqrt3}(e_1 + e_2 + e_3),\quad
-u_1 = \tfrac{1}{\sqrt2}(e_1 - e_2),\quad
-u_2 = \tfrac{1}{\sqrt6}(e_1 + e_2 - 2e_3)
+\begin{aligned}
+u_0 &= \tfrac{1}{\sqrt3}(e_1 + e_2 + e_3), \quad
+u_1 = \tfrac{1}{\sqrt2}(e_1 - e_2), \quad
+u_2 = \tfrac{1}{\sqrt6}(e_1 + e_2 - 2e_3) \\
+w_{\mathbf{1}} &= \tfrac{1}{\sqrt6}\textstyle\sum_g \lvert g\rangle, \quad
+w_{\mathbf{1}'} = \tfrac{1}{\sqrt6}\textstyle\sum_g D_{\mathbf{1}'}(g) \lvert g\rangle, \quad
+w_{jk} = \tfrac{1}{\sqrt3}\textstyle\sum_g D_{\mathbf{2}}(g)_{jk} \lvert g\rangle
+\end{aligned}
 ```
 
-| # | $`S`$ の列 | $`S^{-1} D(g) S`$ | 分解 |
+表：$Z_3$ の具体的な表現の例の規約分解
+| # | $`S`$ | $`S^{-1} D(g) S`$ | 分解 |
 |---|---|---|---|
-| 1 | $`e_1`$, $`e_2`$ | $`\mathrm{2D}(g)`$ | $`\mathrm{2D}`$ |
-| 2 | $`e_1 + e_2`$, $`e_1 - e_2`$ | $`1 \oplus \mathrm{sign}(g)`$ | $`\mathrm{triv} \oplus \mathrm{sign}`$ |
-| 3 | $`u_0`$, $`u_1`$, $`u_2`$ | $`1 \oplus \mathrm{2D}(g)`$ | $`\mathrm{triv} \oplus \mathrm{2D}`$ |
-| 4 | $`u_0`$, $`u_2`$, $`-u_1`$ | $`\mathrm{sign}(g) \oplus \mathrm{2D}(g)`$ | $`\mathrm{sign} \oplus \mathrm{2D}`$ |
-| 5 | $`\tfrac{e_1 \otimes e_1 + e_2 \otimes e_2}{\sqrt2}`$, $`\tfrac{e_1 \otimes e_2 - e_2 \otimes e_1}{\sqrt2}`$, $`\tfrac{e_1 \otimes e_2 + e_2 \otimes e_1}{\sqrt2}`$, $`\tfrac{e_1 \otimes e_1 - e_2 \otimes e_2}{\sqrt2}`$ | $`1 \oplus \mathrm{sign}(g) \oplus \mathrm{2D}(g)`$ | $`\mathrm{triv} \oplus \mathrm{sign} \oplus \mathrm{2D}`$ |
-| 6 | $`\lvert e\rangle`$, $`\tfrac{\lvert a_1\rangle + \lvert a_2\rangle}{\sqrt2}`$, $`\tfrac{\lvert a_1\rangle - \lvert a_2\rangle}{\sqrt2}`$, $`\tfrac{\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt3}`$, $`\tfrac{\lvert a_4\rangle - \lvert a_5\rangle}{\sqrt2}`$, $`\tfrac{-2\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt6}`$ | $`1 \oplus 1 \oplus \mathrm{sign}(g) \oplus 1 \oplus \mathrm{2D}(g)`$ | $`3\,\mathrm{triv} \oplus \mathrm{sign} \oplus \mathrm{2D}`$ |
-| 7 | $`u_0 \otimes f_0`$, $`u_0 \otimes f_1`$, $`u_1 \otimes f_0`$, $`u_2 \otimes f_0`$, $`u_1 \otimes f_1`$, $`u_2 \otimes f_1`$ | $`1 \oplus 1 \oplus \mathrm{2D}(g) \oplus \mathrm{2D}(g)`$ | $`2\,\mathrm{triv} \oplus 2 \cdot \mathrm{2D}`$ |
-| 8 | $`\tfrac{1}{\sqrt6}\sum_g \lvert g\rangle`$, $`\tfrac{1}{\sqrt6}\sum_g \mathrm{sign}(g) \lvert g\rangle`$, $`\tfrac{1}{\sqrt3}\sum_g \mathrm{2D}(g)_{jk} \lvert g\rangle`$（$`(j,k) = (1,1), (2,1), (1,2), (2,2)`$ の順） | $`1 \oplus \mathrm{sign}(g) \oplus \mathrm{2D}(g) \oplus \mathrm{2D}(g)`$ | $`\mathrm{triv} \oplus \mathrm{sign} \oplus 2 \cdot \mathrm{2D}`$ |
+| 1 | $`\begin{pmatrix} e_1 & e_2 \end{pmatrix}`$ | $`D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ |
+| 2 | $`\begin{pmatrix} e_1 + e_2 & e_1 - e_2 \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}'`$ |
+| 3 | $`\begin{pmatrix} u_0 & u_1 & u_2 \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{2}`$ |
+| 4 | $`\begin{pmatrix} u_0 & u_2 & -u_1 \end{pmatrix}`$ | $`D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1}' \oplus \mathbf{2}`$ |
+| 5 | $`\begin{pmatrix} \frac{e_1 \otimes e_1 + e_2 \otimes e_2}{\sqrt2} & \frac{e_1 \otimes e_2 - e_2 \otimes e_1}{\sqrt2} & \frac{e_1 \otimes e_2 + e_2 \otimes e_1}{\sqrt2} & \frac{e_1 \otimes e_1 - e_2 \otimes e_2}{\sqrt2} \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$ |
+| 6 | $`\begin{pmatrix} \lvert e\rangle & \frac{\lvert a_1\rangle + \lvert a_2\rangle}{\sqrt2} & \frac{\lvert a_1\rangle - \lvert a_2\rangle}{\sqrt2} & \frac{\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt3} & \frac{\lvert a_4\rangle - \lvert a_5\rangle}{\sqrt2} & \frac{-2\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt6} \end{pmatrix}`$ | $`1 \oplus 1 \oplus D_{\mathbf{1}'}(g) \oplus 1 \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$ |
+| 7 | $`\begin{pmatrix} u_0 \otimes f_0 & u_0 \otimes f_1 & u_1 \otimes f_0 & u_2 \otimes f_0 & u_1 \otimes f_1 & u_2 \otimes f_1 \end{pmatrix}`$ | $`1 \oplus 1 \oplus D_{\mathbf{2}}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{2} \oplus \mathbf{2}`$ |
+| 8 | $`\begin{pmatrix} w_{\mathbf{1}} & w_{\mathbf{1}'} & w_{11} & w_{21} & w_{12} & w_{22} \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2} \oplus \mathbf{2}`$ |
 
+表から読み取れること：
 - #2：非可換群でも、1次元の既約表現だけでできていれば完全に対角になる。
-- #3 と #4：不変部分空間は同じで、1次元の部分が $`\mathrm{triv}`$ か $`\mathrm{sign}`$ かだけが違う。
-- #6：共役類ごとに分かれる。$`\lbrace e \rbrace \to \mathrm{triv}`$、$`\lbrace a_1, a_2 \rbrace \to \mathrm{triv} \oplus \mathrm{sign}`$、$`\lbrace a_3, a_4, a_5 \rbrace \to \mathrm{triv} \oplus \mathrm{2D}`$。
+- #3 と #4：不変部分空間は同じで、1次元の部分が $`\mathbf{1}`$ か $`\mathbf{1}'`$ かだけが違う。
+- #5：$`\mathbf{2} \otimes \mathbf{2} = \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$。
+- #6：共役類ごとに分かれる。$`\lbrace e \rbrace \to \mathbf{1}`$、$`\lbrace a_1, a_2 \rbrace \to \mathbf{1} \oplus \mathbf{1}'`$、$`\lbrace a_3, a_4, a_5 \rbrace \to \mathbf{1} \oplus \mathbf{2}`$。
 - #8：各既約表現が、その次元と同じ回数だけ現れる（$`1 + 1 + 2 \cdot 2 = 6`$）。
+
 
 ### [定義] 部分群
 $`H \subseteq G`$ が $`G`$ の積について群になるとき、$`H`$ を $`G`$ の部分群という。
