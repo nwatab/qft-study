@@ -121,8 +121,8 @@ $`D`$ が既約表現の直和と同値であるとき、$`D`$ は完全可約�
 ### [定理] 有限群の表現は完全可約
 - 証明：後で（TODO）
 
-### [例] $`Z_3`$ の正則表現の分解
-$`D`$：$`Z_3`$ の正則表現。この節では、$`D_k`$ は $`Z_3`$ の既約表現 $`D_{Z_3,k}`$ を表す（$`k = 1, 2, 3`$）。
+### [例] $`Z_3`$ の正則表現の直和分解
+$`D`$：$`Z_3`$ の正則表現。この節では、$`D_k`$ は $`Z_3`$ の既約表現 $`D_{k}`$ を表す（$`k = 1, 2, 3`$）。
 
 ```math
 \omega = e^{2\pi i/3}, \quad
@@ -144,68 +144,77 @@ $`D \simeq D_1 \oplus D_2 \oplus D_3`$、$`\ 3 = 1 + 1 + 1`$（$`D_j`$ = $`j`$ �
 - 不変部分空間 = $`S`$ の各列が張る空間
 - $`Z_3`$ は可換なので、ブロックは全て $`1 \times 1`$。
 
-### [例] $`Z_3`$ の表現とその対角化
-この節では、$`D_k`$ は $`Z_3`$ の既約表現 $`D_{Z_3,k}`$ を表す（$`k = 1, 2, 3`$）。
-各 $`D`$ は $`D(a)`$ で決まる：$`D(e) = I`$、$`D(b) = D(a)^2`$。どの場合も $`V = ℂ^n`$（#9 も同じ）。
+### [例] $`Z_3`$ の複数の表現とその対角化
+この節では、$`D_k`$ は $`Z_3`$ の既約表現 $`D_{k}`$ を表す（$`k = 1, 2, 3`$）。
+各 $`D`$ は $`D(a)`$ だけで決まる。なぜなら、$`D(e) = I`$、$`D(b) = D(a)^2`$で表現は確定するためである。
 行列は標準基底 $`(e_1, e_2, \dots)`$ で書く（$`k`$ 列目 = $`e_k`$ の行き先）。
 
-既約表現（$`V = ℂ`$。成分 $`\lambda`$ は写像 $`z \mapsto \lambda z`$ を表す）：
+表1：巡回群 $`\mathbb{Z}_3=\{e,a,b\}`$（$`b=a^2`$）の既約表現。$`\omega=e^{2\pi i/3}`$。各成分 $`\lambda`$ は $`D_i(g)`$ であり、線形写像 $`z\mapsto\lambda z`$（$`V=\mathbb{C}`$）を表す。
 
-| 名前 | $`e`$ | $`a`$ | $`b`$ | 説明 |
+| 表現 | $`e`$ | $`a`$ | $`b`$ | 説明 |
 |---|---|---|---|---|
 | $`D_1`$ | $`1`$ | $`1`$ | $`1`$ | 自明表現 |
-| $`D_2`$ | $`1`$ | $`\omega`$ | $`\omega^2`$ | $`D_2(a)`$：$`z \mapsto \omega z`$、$`D_2(b)`$：$`z \mapsto \omega^2 z`$ |
+| $`D_2`$ | $`1`$ | $`\omega`$ | $`\omega^2`$ | $`D_2(a) = \omega`$ で定まる表現|
 | $`D_3`$ | $`1`$ | $`\omega^2`$ | $`\omega`$ | $`D_2`$ の複素共役 |
 
-部品の行列：
+表の行は表現、列は群の元に対応し、例えば $`D_2`$ 行 $`a`$ 列は $`D_2(a)=\omega`$ を意味する。いずれも1次元表現なので $`D_i(g)`$ は $`1\times 1`$ の正則行列、すなわちスカラー倍の写像であり、数と区別しにくいが、あくまで $`V`$ 上の作用である。
+
+以下の表現で繰り返し用いる行列の定義：
 
 ```math
 C = \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix},\quad
-C^2 = \begin{pmatrix} -1 & 1 \\ -1 & 0 \end{pmatrix},\quad
 P = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix},\quad
-P^2 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix},\quad
 R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
 ```
 
-- $`C`$：$`e_1 \mapsto e_2`$、$`e_2 \mapsto -e_1 - e_2`$。$`C^3 = I`$。
-- $`P`$：$`e_1 \mapsto e_2 \mapsto e_3 \mapsto e_1`$（正則表現）。
-- $`R(2\pi/3)`$：$`2\pi/3`$ の回転。$`ℂ^2`$ に作用する。$`R(2\pi/3)^2 = R(4\pi/3)`$。
-- $`(\lambda)`$：$`1 \times 1`$ のブロック $`\lambda`$。
+それぞれ、以下の性質を満たす。
 
-| # | $`V`$ | $`D(a)`$ | $`D(b)`$ | 説明 |
-|---|---|---|---|---|
-| 1 | $`ℂ^2`$ | $`C`$ | $`C^2`$ | $`e_1 \mapsto e_2`$、$`e_2 \mapsto -e_1 - e_2`$ |
-| 2 | $`ℂ^2`$ | $`\omega C`$ | $`\omega^2 C^2`$ | #1 を $`\omega`$ 倍 |
-| 3 | $`ℂ^2`$ | $`\omega^2 C`$ | $`\omega C^2`$ | #1 を $`\omega^2`$ 倍 |
-| 4 | $`ℂ^3`$ | $`P`$ | $`P^2`$ | $`e_1, e_2, e_3`$ の巡回置換（三角形の頂点） |
-| 5 | $`ℂ^3`$ | $`C \oplus (\omega)`$ | $`C^2 \oplus (\omega^2)`$ | #1 と、$`e_3 \mapsto \omega e_3`$ |
-| 6 | $`ℂ^3`$ | $`\omega^2 C \oplus (1)`$ | $`\omega C^2 \oplus (1)`$ | #3 と、$`e_3 \mapsto e_3`$ |
-| 7 | $`ℂ^4`$ | $`P \oplus (1)`$ | $`P^2 \oplus (1)`$ | 三角形の頂点と、動かない中心 |
-| 8 | $`ℂ^6`$ | $`P \oplus P`$ | $`P^2 \oplus P^2`$ | 2つの三角形を同時に回す |
-| 9 | $`ℂ^2`$ | $`R(2\pi/3)`$ | $`R(4\pi/3)`$ | 平面の $`2\pi/3`$ 回転 |
+- $`C`$：$`Ce_1 = e_2`$、$`Ce_2 = -e_1 - e_2`$。$`C^3 = I`$。
+- $`P`$：$`Pe_1 = e_2`$、$`Pe_2 = e_3`$、$`Pe_3 = e_1`$。$`P^3 = I`$。
+- $`(\lambda)`$：$\lambda$を成分に持つ $`1 \times 1`$ の行列。
 
-対角化。どの場合も $`S^{-1} D(e) S = I`$。$`S`$ の列 = 全ての $`D(g)`$ に共通の固有ベクトル：
 
+表：可約表現の例
+
+| # | $`V`$ | $`D(e)`$ | $`D(a)`$ | $`D(b)`$ | 説明 |
+|---|---|---|---|---|---|
+| 1 | $`ℂ^2`$ | $`I`$ | $`C`$ | $`C^2`$ | $`Ce_1 = e_2`$、$`Ce_2 = -e_1 - e_2`$ |
+| 2 | $`ℂ^2`$ | $`I`$ | $`\omega C`$ | $`\omega^2 C^2`$ | #1 を $`\omega`$ 倍 |
+| 3 | $`ℂ^2`$ | $`I`$ | $`\omega^2 C`$ | $`\omega C^2`$ | #1 を $`\omega^2`$ 倍 |
+| 4 | $`ℂ^3`$ | $`I`$ | $`P`$ | $`P^2`$ | $`e_1, e_2, e_3`$ の巡回置換（三角形の頂点） |
+| 5 | $`ℂ^3`$ | $`I`$ | $`C \oplus (\omega)`$ | $`C^2 \oplus (\omega^2)`$ | #1 と、$`e_3 \mapsto \omega e_3`$ |
+| 6 | $`ℂ^3`$ | $`I`$ | $`\omega^2 C \oplus (1)`$ | $`\omega C^2 \oplus (1)`$ | #3 と、$`e_3 \mapsto e_3`$ |
+| 7 | $`ℂ^4`$ | $`I`$ | $`P \oplus (1)`$ | $`P^2 \oplus (1)`$ | 三角形の頂点と、動かない中心 |
+| 8 | $`ℂ^6`$ | $`I`$ | $`P \oplus P`$ | $`P^2 \oplus P^2`$ | 2つの三角形を同時に回す |
+| 9 | $`ℂ^2`$ | $`I`$ | $`R(2\pi/3)`$ | $`R(4\pi/3)`$ | 平面の $`2\pi/3`$ 回転 |
+
+#9は、 $ V=\mathbb{R}^2$ なら既約である。
+
+対角化について、 $`D(a)^3 = I`$ より、$`D(a)`$ の最小多項式は $`x^3 - 1 = (x-1)(x-\omega)(x-\omega^2)`$ を割り切る。重根を持たないので、$`D(a)`$ は $`ℂ`$ 上で対角化可能である。$`D(b) = D(a)^2`$ なので $`D(a)`$ の固有ベクトルは全ての $`D(g)`$ の共通固有ベクトルであり、それが張る1次元部分空間は不変部分空間になる。$`S`$ はその固有ベクトルを列に並べた行列：
+
+表：上記の可約表現の規約分解
 ```math
 S_C = \begin{pmatrix} 1 & 1 \\ -\omega & -\omega^2 \end{pmatrix},\quad
 S_P = \begin{pmatrix} 1 & 1 & 1 \\ 1 & \omega^2 & \omega \\ 1 & \omega & \omega^2 \end{pmatrix},\quad
 S_R = \begin{pmatrix} 1 & 1 \\ -i & i \end{pmatrix}
 ```
 
-| # | $`S`$ | $`S^{-1}D(a)S`$ | $`S^{-1}D(b)S`$ | 分解 |
-|---|---|---|---|---|
-| 1 | $`S_C`$ | $`\mathrm{diag}(\omega, \omega^2)`$ | $`\mathrm{diag}(\omega^2, \omega)`$ | $`D_2 \oplus D_3`$ |
-| 2 | $`S_C`$ | $`\mathrm{diag}(\omega^2, 1)`$ | $`\mathrm{diag}(\omega, 1)`$ | $`D_3 \oplus D_1`$ |
-| 3 | $`S_C`$ | $`\mathrm{diag}(1, \omega)`$ | $`\mathrm{diag}(1, \omega^2)`$ | $`D_1 \oplus D_2`$ |
-| 4 | $`S_P`$ | $`\mathrm{diag}(1, \omega, \omega^2)`$ | $`\mathrm{diag}(1, \omega^2, \omega)`$ | $`D_1 \oplus D_2 \oplus D_3`$ |
-| 5 | $`S_C \oplus (1)`$ | $`\mathrm{diag}(\omega, \omega^2, \omega)`$ | $`\mathrm{diag}(\omega^2, \omega, \omega^2)`$ | $`D_2 \oplus D_3 \oplus D_2`$ |
-| 6 | $`S_C \oplus (1)`$ | $`\mathrm{diag}(1, \omega, 1)`$ | $`\mathrm{diag}(1, \omega^2, 1)`$ | $`D_1 \oplus D_2 \oplus D_1`$ |
-| 7 | $`S_P \oplus (1)`$ | $`\mathrm{diag}(1, \omega, \omega^2, 1)`$ | $`\mathrm{diag}(1, \omega^2, \omega, 1)`$ | $`D_1 \oplus D_2 \oplus D_3 \oplus D_1`$ |
-| 8 | $`S_P \oplus S_P`$ | $`\mathrm{diag}(1, \omega, \omega^2, 1, \omega, \omega^2)`$ | $`\mathrm{diag}(1, \omega^2, \omega, 1, \omega^2, \omega)`$ | $`(D_1 \oplus D_2 \oplus D_3)^{\oplus 2}`$ |
-| 9 | $`S_R`$ | $`\mathrm{diag}(\omega, \omega^2)`$ | $`\mathrm{diag}(\omega^2, \omega)`$ | $`D_2 \oplus D_3`$ |
+| # | $`S`$ | $`S^{-1}D(e)S`$ | $`S^{-1}D(a)S`$ | $`S^{-1}D(b)S`$ | 分解 |
+|---|---|---|---|---|---|
+| 1 | $`S_C`$ | $`I`$ | $`\mathrm{diag}(\omega, \omega^2)`$ | $`\mathrm{diag}(\omega^2, \omega)`$ | $`D_2 \oplus D_3`$ |
+| 2 | $`S_C`$ | $`I`$ | $`\mathrm{diag}(\omega^2, 1)`$ | $`\mathrm{diag}(\omega, 1)`$ | $`D_3 \oplus D_1`$ |
+| 3 | $`S_C`$ | $`I`$ | $`\mathrm{diag}(1, \omega)`$ | $`\mathrm{diag}(1, \omega^2)`$ | $`D_1 \oplus D_2`$ |
+| 4 | $`S_P`$ | $`I`$ | $`\mathrm{diag}(1, \omega, \omega^2)`$ | $`\mathrm{diag}(1, \omega^2, \omega)`$ | $`D_1 \oplus D_2 \oplus D_3`$ |
+| 5 | $`S_C \oplus (1)`$ | $`I`$ | $`\mathrm{diag}(\omega, \omega^2, \omega)`$ | $`\mathrm{diag}(\omega^2, \omega, \omega^2)`$ | $`D_2 \oplus D_3 \oplus D_2`$ |
+| 6 | $`S_C \oplus (1)`$ | $`I`$ | $`\mathrm{diag}(1, \omega, 1)`$ | $`\mathrm{diag}(1, \omega^2, 1)`$ | $`D_1 \oplus D_2 \oplus D_1`$ |
+| 7 | $`S_P \oplus (1)`$ | $`I`$ | $`\mathrm{diag}(1, \omega, \omega^2, 1)`$ | $`\mathrm{diag}(1, \omega^2, \omega, 1)`$ | $`D_1 \oplus D_2 \oplus D_3 \oplus D_1`$ |
+| 8 | $`S_P \oplus S_P`$ | $`I`$ | $`\mathrm{diag}(1, \omega, \omega^2, 1, \omega, \omega^2)`$ | $`\mathrm{diag}(1, \omega^2, \omega, 1, \omega^2, \omega)`$ | $`(D_1 \oplus D_2 \oplus D_3)^{\oplus 2}`$ |
+| 9 | $`S_R`$ | $`I`$ | $`\mathrm{diag}(\omega, \omega^2)`$ | $`\mathrm{diag}(\omega^2, \omega)`$ | $`D_2 \oplus D_3`$ |
+
+1と9は、いずれも $`D_2 \oplus D_3`$ に分解されるが、同値である。実際、 $T=S_c S_R^{-1}$ とおくと、 $T^{-1}CT=R(2 \pi / 3)$ が成り立つ。
 
 ### [例] $`S_3`$
-$`S_3`$：3つの物の置換群（対称群）。
+$`S_3`$は、3つのモノの置換群であり、以下のような操作である。
 
 ```math
 S_3 = \lbrace e, a_1, a_2, a_3, a_4, a_5 \rbrace, \quad
@@ -215,8 +224,9 @@ a_1 = (1,2,3),\ a_2 = (3,2,1),\ a_3 = (1,2),\ a_4 = (2,3),\ a_5 = (3,1)
 - 記法：$`(i, j, k)`$ は、位置 $`i`$ の物を $`j`$ へ、$`j`$ の物を $`k`$ へ、$`k`$ の物を $`i`$ へ移す。$`(i, j)`$ は位置 $`i`$ と $`j`$ の物を入れ替える。
 - 積：$`gh`$ = 先に $`h`$、次に $`g`$。
 
-群表（行 × 列）：
 
+
+群表：
 | $`\cdot`$ | $`e`$ | $`a_1`$ | $`a_2`$ | $`a_3`$ | $`a_4`$ | $`a_5`$ |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | $`e`$ | $`e`$ | $`a_1`$ | $`a_2`$ | $`a_3`$ | $`a_4`$ | $`a_5`$ |
@@ -225,6 +235,8 @@ a_1 = (1,2,3),\ a_2 = (3,2,1),\ a_3 = (1,2),\ a_4 = (2,3),\ a_5 = (3,1)
 | $`a_3`$ | $`a_3`$ | $`a_4`$ | $`a_5`$ | $`e`$ | $`a_1`$ | $`a_2`$ |
 | $`a_4`$ | $`a_4`$ | $`a_5`$ | $`a_3`$ | $`a_2`$ | $`e`$ | $`a_1`$ |
 | $`a_5`$ | $`a_5`$ | $`a_3`$ | $`a_4`$ | $`a_1`$ | $`a_2`$ | $`e`$ |
+
+非可換群である。表は、行 × 列の順番で読む。
 
 #### 2次元表現
 位置 1, 2, 3 = 角度 $`30^\circ, 150^\circ, 270^\circ`$ にある正三角形の頂点。
