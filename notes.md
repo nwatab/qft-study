@@ -318,16 +318,17 @@ v_3 &= -e_2
 - $`X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}`$（2つの基底の入れ替え）。
 - $`ℂ^4 = ℂ^2 \otimes ℂ^2`$ の基底の順序：$`e_1 \otimes e_1,\ e_1 \otimes e_2,\ e_2 \otimes e_1,\ e_2 \otimes e_2`$。
 
+表：$`S_3`$ の表現の例
+
 | # | $`V`$ | $`D(g)`$ | 説明 |
 |---|---|---|---|
-| 1 | $`ℂ^2`$ | $`D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ そのもの（既約） |
-| 2 | $`ℂ^2`$ | $`g = e, a_1, a_2`$ で $`I_2`$、$`g = a_3, a_4, a_5`$ で $`X`$ | 向き（左回り・右回り）の2状態。回転では変わらず、鏡映で入れ替わる |
-| 3 | $`ℂ^3`$ | $`D_{\mathrm{perm}}(g)`$ | 三角形の頂点 |
-| 4 | $`ℂ^3`$ | $`D_{\mathbf{1}'}(g)\, D_{\mathrm{perm}}(g)`$ | 三角形の頂点で、鏡映のときに符号が付く |
-| 5 | $`ℂ^4`$ | $`D_{\mathbf{2}}(g) \otimes D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ の2粒子（$`\mathbf{2} \otimes \mathbf{2}`$） |
-| 6 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h g^{-1}\rangle`$ | 基底 $`\lvert h\rangle`$（$`h \in S_3`$）への共役による作用 |
-| 7 | $`ℂ^6`$ | $`D_{\mathrm{perm}}(g) \otimes I_2`$ | 三角形の頂点 × 2準位（基底 $`e_i \otimes f_n`$、$`n = 0, 1`$） |
-| 8 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h\rangle`$ | 正則表現 |
+| 1 | $`ℂ^2`$ | $`g = e, a_1, a_2`$ で $`I_2`$、$`g = a_3, a_4, a_5`$ で $`X`$ | 向き（左回り・右回り）の2状態。回転では変わらず、鏡映で入れ替わる |
+| 2 | $`ℂ^3`$ | $`D_{\mathrm{perm}}(g)`$ | 三角形の頂点 |
+| 3 | $`ℂ^3`$ | $`D_{\mathbf{1}'}(g)\, D_{\mathrm{perm}}(g)`$ | 三角形の頂点で、鏡映のときに符号が付く |
+| 4 | $`ℂ^4`$ | $`D_{\mathbf{2}}(g) \otimes D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ の2粒子（$`\mathbf{2} \otimes \mathbf{2}`$） |
+| 5 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h g^{-1}\rangle`$ | 基底 $`\lvert h\rangle`$（$`h \in S_3`$）への共役による作用 |
+| 6 | $`ℂ^6`$ | $`D_{\mathrm{perm}}(g) \otimes I_2`$ | 三角形の頂点 × 2準位（基底 $`e_i \otimes f_n`$、$`n = 0, 1`$） |
+| 7 | $`ℂ^6`$ | $`D(g)\lvert h\rangle = \lvert g h\rangle`$ | 正則表現 |
 
 それぞれの規約分解を考える。$`S`$ は列ベクトルを横に並べた行列である。以下で用いるベクトル：
 
@@ -342,24 +343,24 @@ w_{jk} = \tfrac{1}{\sqrt3}\textstyle\sum_g D_{\mathbf{2}}(g)_{jk} \lvert g\rangl
 \end{aligned}
 ```
 
-表：$Z_3$ の具体的な表現の例の規約分解
+表：$`S_3`$ の表現の規約分解
+
 | # | $`S`$ | $`S^{-1} D(g) S`$ | 分解 |
 |---|---|---|---|
-| 1 | $`\begin{pmatrix} e_1 & e_2 \end{pmatrix}`$ | $`D_{\mathbf{2}}(g)`$ | $`\mathbf{2}`$ |
-| 2 | $`\begin{pmatrix} e_1 + e_2 & e_1 - e_2 \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}'`$ |
-| 3 | $`\begin{pmatrix} u_0 & u_1 & u_2 \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{2}`$ |
-| 4 | $`\begin{pmatrix} u_0 & u_2 & -u_1 \end{pmatrix}`$ | $`D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1}' \oplus \mathbf{2}`$ |
-| 5 | $`\begin{pmatrix} \frac{e_1 \otimes e_1 + e_2 \otimes e_2}{\sqrt2} & \frac{e_1 \otimes e_2 - e_2 \otimes e_1}{\sqrt2} & \frac{e_1 \otimes e_2 + e_2 \otimes e_1}{\sqrt2} & \frac{e_1 \otimes e_1 - e_2 \otimes e_2}{\sqrt2} \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$ |
-| 6 | $`\begin{pmatrix} \lvert e\rangle & \frac{\lvert a_1\rangle + \lvert a_2\rangle}{\sqrt2} & \frac{\lvert a_1\rangle - \lvert a_2\rangle}{\sqrt2} & \frac{\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt3} & \frac{\lvert a_4\rangle - \lvert a_5\rangle}{\sqrt2} & \frac{-2\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt6} \end{pmatrix}`$ | $`1 \oplus 1 \oplus D_{\mathbf{1}'}(g) \oplus 1 \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$ |
-| 7 | $`\begin{pmatrix} u_0 \otimes f_0 & u_0 \otimes f_1 & u_1 \otimes f_0 & u_2 \otimes f_0 & u_1 \otimes f_1 & u_2 \otimes f_1 \end{pmatrix}`$ | $`1 \oplus 1 \oplus D_{\mathbf{2}}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{2} \oplus \mathbf{2}`$ |
-| 8 | $`\begin{pmatrix} w_{\mathbf{1}} & w_{\mathbf{1}'} & w_{11} & w_{21} & w_{12} & w_{22} \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2} \oplus \mathbf{2}`$ |
+| 1 | $`\begin{pmatrix} e_1 + e_2 & e_1 - e_2 \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}'`$ |
+| 2 | $`\begin{pmatrix} u_0 & u_1 & u_2 \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{2}`$ |
+| 3 | $`\begin{pmatrix} u_0 & u_2 & -u_1 \end{pmatrix}`$ | $`D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1}' \oplus \mathbf{2}`$ |
+| 4 | $`\begin{pmatrix} \frac{e_1 \otimes e_1 + e_2 \otimes e_2}{\sqrt2} & \frac{e_1 \otimes e_2 - e_2 \otimes e_1}{\sqrt2} & \frac{e_1 \otimes e_2 + e_2 \otimes e_1}{\sqrt2} & \frac{e_1 \otimes e_1 - e_2 \otimes e_2}{\sqrt2} \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$ |
+| 5 | $`\begin{pmatrix} \lvert e\rangle & \frac{\lvert a_1\rangle + \lvert a_2\rangle}{\sqrt2} & \frac{\lvert a_1\rangle - \lvert a_2\rangle}{\sqrt2} & \frac{\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt3} & \frac{\lvert a_4\rangle - \lvert a_5\rangle}{\sqrt2} & \frac{-2\lvert a_3\rangle + \lvert a_4\rangle + \lvert a_5\rangle}{\sqrt6} \end{pmatrix}`$ | $`1 \oplus 1 \oplus D_{\mathbf{1}'}(g) \oplus 1 \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$ |
+| 6 | $`\begin{pmatrix} u_0 \otimes f_0 & u_0 \otimes f_1 & u_1 \otimes f_0 & u_2 \otimes f_0 & u_1 \otimes f_1 & u_2 \otimes f_1 \end{pmatrix}`$ | $`1 \oplus 1 \oplus D_{\mathbf{2}}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{2} \oplus \mathbf{2}`$ |
+| 7 | $`\begin{pmatrix} w_{\mathbf{1}} & w_{\mathbf{1}'} & w_{11} & w_{21} & w_{12} & w_{22} \end{pmatrix}`$ | $`1 \oplus D_{\mathbf{1}'}(g) \oplus D_{\mathbf{2}}(g) \oplus D_{\mathbf{2}}(g)`$ | $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2} \oplus \mathbf{2}`$ |
 
 表から読み取れること：
-- #2：非可換群でも、1次元の既約表現だけでできていれば完全に対角になる。
-- #3 と #4：不変部分空間は同じで、1次元の部分が $`\mathbf{1}`$ か $`\mathbf{1}'`$ かだけが違う。
-- #5：$`\mathbf{2} \otimes \mathbf{2} = \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$。
-- #6：共役類ごとに分かれる。$`\lbrace e \rbrace \to \mathbf{1}`$、$`\lbrace a_1, a_2 \rbrace \to \mathbf{1} \oplus \mathbf{1}'`$、$`\lbrace a_3, a_4, a_5 \rbrace \to \mathbf{1} \oplus \mathbf{2}`$。
-- #8：各既約表現が、その次元と同じ回数だけ現れる（$`1 + 1 + 2 \cdot 2 = 6`$）。
+- #1：非可換群でも、1次元の既約表現だけでできていれば完全に対角になる。
+- #2 と #3：不変部分空間は同じで、1次元の部分が $`\mathbf{1}`$ か $`\mathbf{1}'`$ かだけが違う。
+- #4：$`\mathbf{2} \otimes \mathbf{2} = \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$。
+- #5：共役類ごとに分かれる。$`\lbrace e \rbrace \to \mathbf{1}`$、$`\lbrace a_1, a_2 \rbrace \to \mathbf{1} \oplus \mathbf{1}'`$、$`\lbrace a_3, a_4, a_5 \rbrace \to \mathbf{1} \oplus \mathbf{2}`$。
+- #7：各既約表現が、その次元と同じ回数だけ現れる（$`1 + 1 + 2 \cdot 2 = 6`$）。
 
 
 ### [定義] 部分群
