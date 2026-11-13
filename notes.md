@@ -1,12 +1,3 @@
-## [定義] 張る空間（span）
-$`V`$ を $`ℂ`$ 上のベクトル空間、$`v_1, \dots, v_k \in V`$ とする。
-
-```math
-\mathrm{span}\lbrace v_1, \dots, v_k \rbrace = \lbrace c_1 v_1 + \cdots + c_k v_k \mid c_1, \dots, c_k \in ℂ \rbrace
-```
-
-- 係数は $`V`$ と同じ体（ここでは $`ℂ`$）からとる。
-
 ## [定義] 群
 - A1 : $`\forall f, g \in G,\ fg \in G`$
 - A2 : $`\forall f, g, h \in G,\ f(gh) = (fg)h`$
@@ -25,15 +16,30 @@ $`G, H`$ を群とする。写像 $`\varphi: G \to H`$ が次を満たすとき�
 - 逆元は逆元へ移る：$`\varphi(g)\varphi(g^{-1}) = \varphi(e_G) = e_H`$ より $`\varphi(g^{-1}) = \varphi(g)^{-1}`$。
 - 全単射な群準同型を同型という。
 
+## [定義] 一般線形群 $`GL(V)`$
+$`V`$ をベクトル空間とする。$`V`$ 上の可逆な線形演算子全体を $`GL(V)`$ と書く。$`GL(V)`$ は合成について群になり、これを一般線形群という。
+
+群であることを確かめる。$`A, B \in GL(V)`$ とする。
+- A1：$`AB`$ は線形で、逆 $`B^{-1}A^{-1}`$ をもつ。
+- A2：写像の合成は結合的。
+- A3：恒等写像 $`1`$ は線形で可逆。
+- A4：$`A^{-1}`$ は可逆（逆は $`A`$）で、線形でもある。$`x = A^{-1}u`$、$`y = A^{-1}w`$ とおくと $`A(\alpha x + \beta y) = \alpha u + \beta w`$ より $`A^{-1}(\alpha u + \beta w) = \alpha A^{-1}u + \beta A^{-1}w`$。
+
+補足：
+- $`V = ℂ^n`$ のとき、$`GL(n, ℂ) = \lbrace A \in ℂ^{n \times n} \mid \det A \neq 0 \rbrace`$。
+- 和では閉じない（$`1 + (-1) = 0`$ は可逆でない）。群の演算は合成（積）だけ。
+
 ## [定義] 表現
 $`V`$ をベクトル空間とする。$`G`$ の $`V`$ 上の表現とは、$`G`$ の元から $`V`$ 上の線形演算子への写像 $`D`$ で、次を満たすもの：
 
 - B1 : $`D(e) = 1`$
 - B2 : $`\forall g_1, g_2 \in G,\ D(g_1)D(g_2) = D(g_1 g_2)`$
 
-（B1, B2：$`D`$ は群準同型）
+B1, B2 より $`D(g)D(g^{-1}) = D(e) = 1`$ なので、$`D(g)`$ は可逆である。言い換えると、表現とは群準同型 $`D: G \to GL(V)`$ のことである。
 
-## [定義] 同値な表現
+正確には、表現は組 $`(V, D)`$ である。物理では $`D`$ だけを、数学では $`V`$ だけを指して「表現」と呼ぶことが多い。
+
+## [定義] 同値な表現 $`\simeq`$
 $`V`$ 上の $`G`$ の表現 $`D`$ と $`D'`$ は、次を満たすとき同値であるといい、$`D \simeq D'`$ と書く。
 
 ```math
@@ -75,6 +81,15 @@ D(a) = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}, \quad
 D(b) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}
 ```
 
+## [記法] $`\mathrm{span}`$
+$`V`$ を $`ℂ`$ 上のベクトル空間、$`v_1, \dots, v_k \in V`$ とする。$`v_1, \dots, v_k`$ の線形結合全体（$`v_1, \dots, v_k`$ が張る部分空間、線形包）を次のように書く。
+
+```math
+\mathrm{span}\lbrace v_1, \dots, v_k \rbrace = \lbrace c_1 v_1 + \cdots + c_k v_k \mid c_1, \dots, c_k \in ℂ \rbrace
+```
+
+- 係数は $`V`$ と同じ体（ここでは $`ℂ`$）からとる。
+
 ## [定義] 不変部分空間
 線形部分空間 $`W \subseteq V`$ は、次を満たすとき $`G`$ 不変であるという。
 
@@ -92,7 +107,7 @@ D(b) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}
 - $`n \geq 2`$：可約。$`W = \mathrm{span}\lbrace e_1 \rbrace`$ は $`\lbrace 0 \rbrace \neq W \neq V`$ を満たし、$`D(g)w = w \in W`$。
 - $`n \geq 2`$ のとき $`I_1 \not\simeq I_n`$（次元が違う）。
 
-## [定義] 直和
+## [定義] 直和 $`\oplus`$
 $`D_1`$ を $`V_1`$ 上の表現、$`D_2`$ を $`V_2`$ 上の表現とする。
 $`D_1 \oplus D_2`$ は、次で定まる $`V_1 \oplus V_2`$ 上の表現である。
 
@@ -100,7 +115,34 @@ $`D_1 \oplus D_2`$ は、次で定まる $`V_1 \oplus V_2`$ 上の表現であ�
 (D_1 \oplus D_2)(g) = \begin{pmatrix} D_1(g) & 0 \\ 0 & D_2(g) \end{pmatrix}
 ```
 
-- $`\dim (V_1 \oplus V_2) = \dim V_1 + \dim V_2`$（積ではなく和。積になるのは $`\otimes`$）
+- $`\dim (V_1 \oplus V_2) = \dim V_1 + \dim V_2`$（積ではなく和。積になるのは下のテンソル積 $`\otimes`$）
+
+## [定義] テンソル積 $`\otimes`$
+$`V`$ の基底を $`e_1, \dots, e_m`$、$`W`$ の基底を $`f_1, \dots, f_n`$ とする。$`V \otimes W`$ は、全ての組 $`e_i \otimes f_j`$ を基底とするベクトル空間である。
+
+- $`\dim (V \otimes W) = \dim V \cdot \dim W`$（和ではなく積）
+- ベクトルのテンソル積は、各成分について線形に展開する：
+
+```math
+v = \sum_i a_i e_i,\quad w = \sum_j b_j f_j \quad\Rightarrow\quad v \otimes w = \sum_{i,j} a_i b_j\, e_i \otimes f_j
+```
+
+- 線形写像 $`A: V \to V`$、$`B: W \to W`$ のテンソル積 $`A \otimes B`$ は $`(A \otimes B)(v \otimes w) = Av \otimes Bw`$ で定まる。基底を $`e_1 \otimes f_1, \dots, e_1 \otimes f_n, e_2 \otimes f_1, \dots`$ の順に並べると、行列はクロネッカー積になる：
+
+```math
+A \otimes B = \begin{pmatrix} a_{11} B & \cdots & a_{1m} B \\ \vdots & \ddots & \vdots \\ a_{m1} B & \cdots & a_{mm} B \end{pmatrix}
+```
+
+- 定義から $`(A \otimes B)(C \otimes D) = AC \otimes BD`$。
+
+$`D_1`$ を $`V_1`$ 上の表現、$`D_2`$ を $`V_2`$ 上の表現とする。$`D_1 \otimes D_2`$ は、次で定まる $`V_1 \otimes V_2`$ 上の表現である。
+
+```math
+(D_1 \otimes D_2)(g) = D_1(g) \otimes D_2(g)
+```
+
+- 表現であること：$`(D_1 \otimes D_2)(e) = I \otimes I = I`$、$`(D_1(g) \otimes D_2(g))(D_1(h) \otimes D_2(h)) = D_1(gh) \otimes D_2(gh)`$。
+- 物理では、2つの系を合わせた系（例：2粒子）に対応する。物理の文献ではテンソル積表現を「直積表現（direct product representation）」と呼ぶこともある。
 
 ## [定義] 完全可約
 $`D`$ が既約表現の直和と同値であるとき、$`D`$ は完全可約であるという。
@@ -141,7 +183,7 @@ $`D \simeq D_1 \oplus D_2 \oplus D_3`$、$`\ 3 = 1 + 1 + 1`$（$`D_j`$ = $`j`$ �
 - $`D_1`$：自明表現。$`D_1(e) = D_1(a) = D_1(b) = 1`$
 - $`D_2`$：上の1次元表現。$`D_2(e) = 1`$、$`D_2(a) = \omega`$、$`D_2(b) = \omega^2`$
 - $`D_3`$：その複素共役。$`D_3(e) = 1`$、$`D_3(a) = \omega^2`$、$`D_3(b) = \omega`$
-- 不変部分空間 = $`S`$ の各列が張る空間
+- 不変部分空間 = $`S`$ の各列が張る部分空間
 - $`Z_3`$ は可換なので、ブロックは全て $`1 \times 1`$。
 
 ## [例] $`Z_3`$ の複数の表現とその対角化
@@ -171,7 +213,7 @@ R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta 
 
 - $`C`$：$`Ce_1 = e_2`$、$`Ce_2 = -e_1 - e_2`$。$`C^3 = I`$。
 - $`P`$：$`Pe_1 = e_2`$、$`Pe_2 = e_3`$、$`Pe_3 = e_1`$。$`P^3 = I`$。
-- $`(\lambda)`$：$\lambda$を成分に持つ $`1 \times 1`$ の行列。
+- $`(\lambda)`$：$`\lambda`$ を成分に持つ $`1 \times 1`$ の行列。
 
 
 表：可約表現の例
@@ -188,7 +230,7 @@ R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta 
 | 8 | $`ℂ^6`$ | $`I`$ | $`P \oplus P`$ | $`P^2 \oplus P^2`$ | 2つの三角形を同時に回す |
 | 9 | $`ℂ^2`$ | $`I`$ | $`R(2\pi/3)`$ | $`R(4\pi/3)`$ | 平面の $`2\pi/3`$ 回転 |
 
-#9は、 $ V=\mathbb{R}^2$ なら既約である。
+#9は、$`V=\mathbb{R}^2`$ なら既約である。
 
 対角化について、 $`D(a)^3 = I`$ より、$`D(a)`$ の最小多項式は $`x^3 - 1 = (x-1)(x-\omega)(x-\omega^2)`$ を割り切る。重根を持たないので、$`D(a)`$ は $`ℂ`$ 上で対角化可能である。$`D(b) = D(a)^2`$ なので $`D(a)`$ の固有ベクトルは全ての $`D(g)`$ の共通固有ベクトルであり、それが張る1次元部分空間は不変部分空間になる。$`S`$ はその固有ベクトルを列に並べた行列：
 
@@ -211,7 +253,7 @@ S_R = \begin{pmatrix} 1 & 1 \\ -i & i \end{pmatrix}
 | 8 | $`S_P \oplus S_P`$ | $`I`$ | $`\mathrm{diag}(1, \omega, \omega^2, 1, \omega, \omega^2)`$ | $`\mathrm{diag}(1, \omega^2, \omega, 1, \omega^2, \omega)`$ | $`(D_1 \oplus D_2 \oplus D_3)^{\oplus 2}`$ |
 | 9 | $`S_R`$ | $`I`$ | $`\mathrm{diag}(\omega, \omega^2)`$ | $`\mathrm{diag}(\omega^2, \omega)`$ | $`D_2 \oplus D_3`$ |
 
-1と9は、いずれも $`D_2 \oplus D_3`$ に分解されるが、同値である。実際、 $T=S_c S_R^{-1}$ とおくと、 $T^{-1}CT=R(2 \pi / 3)$ が成り立つ。
+1と9は、いずれも $`D_2 \oplus D_3`$ に分解されるが、同値である。実際、$`T=S_c S_R^{-1}`$ とおくと、$`T^{-1}CT=R(2 \pi / 3)`$ が成り立つ。
 
 ## [例] $`S_3`$
 $`S_3`$は、3つのモノの置換群であり、以下のような操作である。
@@ -238,7 +280,7 @@ a_1 = (1,2,3),\ a_2 = (3,2,1),\ a_3 = (1,2),\ a_4 = (2,3),\ a_5 = (3,1)
 
 非可換群である。表は、行 × 列の順番で読む。
 
-## [例] $S_3$ の$\mathbb{C}^2$上の表現
+## [例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現
 
 表現空間は $`V = \mathbb{C}^2`$、基底は標準基底 $`e_1, e_2`$。
 
@@ -370,12 +412,12 @@ $`H \subseteq G`$ が $`G`$ の積について群になるとき、$`H`$ を $`G
 ## [例] $`Z_3 \subset S_3`$
 $`\lbrace e, a_1, a_2 \rbrace`$ は $`S_3`$ の部分群で、$`Z_3`$ と同型（$`a_1 \mapsto a`$、$`a_2 \mapsto b`$）。
 
-## [定義] 右剰余類 / 左剰余類
+## [定義] 右剰余類 $`Hg`$ / 左剰余類 $`gH`$
 $`H`$ を $`G`$ の部分群、$`g \in G`$ とする。
 - 右剰余類：$`Hg = \lbrace hg \mid h \in H \rbrace`$
 - 左剰余類：$`gH = \lbrace gh \mid h \in H \rbrace`$
 
-## [定義] 正規部分群
+## [定義] 正規部分群 $`\trianglelefteq`$
 $`G`$ の部分群 $`H`$ は、次を満たすとき正規部分群（不変部分群）であるといい、$`H \trianglelefteq G`$ と書く。
 
 ```math
@@ -388,7 +430,7 @@ $`G`$ の部分群 $`H`$ は、次を満たすとき正規部分群（不変部�
 \forall g \in G,\ \forall h \in H:\ g h g^{-1} \in H
 ```
 
-## [定義] 剰余群
+## [定義] 剰余群 $`G/H`$
 $`H \trianglelefteq G`$ のとき、剰余類の集合 $`G/H = \lbrace Hg \mid g \in G \rbrace`$ は、集合の積
 $`AB = \lbrace ab \mid a \in A,\ b \in B \rbrace`$ について群になる：
 
@@ -408,3 +450,98 @@ $`G/H`$ の群の公理（どれも $`(Hg_1)(Hg_2) = Hg_1g_2`$ から従う）�
 
 ## [例] $`S_3`$ の正規部分群
 - TODO
+
+## [定義] トレース $`\mathrm{tr}`$
+$`n \times n`$ 行列 $`A`$ のトレースを、対角成分の和で定める。
+
+```math
+\mathrm{tr}\, A = \sum_{i=1}^{n} A_{ii}
+```
+
+- $`\mathrm{tr}(AB) = \sum_{i,j} A_{ij} B_{ji} = \mathrm{tr}(BA)`$。
+- したがって $`\mathrm{tr}(S^{-1} A S) = \mathrm{tr}(A S S^{-1}) = \mathrm{tr}\, A`$。トレースは基底の取り方によらないので、線形演算子 $`A: V \to V`$ のトレースとしても定まる。
+
+## [定義] 指標 $`\chi`$
+$`G`$ の表現 $`(V, D)`$ に対して、$`G`$ 上の関数
+
+```math
+\chi_D(g) = \mathrm{tr}\, D(g)
+```
+
+を $`D`$ の指標という。
+
+性質：
+1. $`\chi_D(e) = \mathrm{tr}\, 1 = \dim V`$。
+2. 同値な表現は同じ指標をもつ：$`\chi_{D'}(g) = \mathrm{tr}(S^{-1} D(g) S) = \chi_D(g)`$。
+3. 直和は和：$`\chi_{D_1 \oplus D_2} = \chi_{D_1} + \chi_{D_2}`$（ブロック対角行列のトレースは各ブロックのトレースの和）。
+
+例：$`Z_3`$ の正則表現（上の [例] $`Z_3`$）では $`D(a), D(b)`$ の対角成分が全て $`0`$ なので、$`\chi = (3, 0, 0)`$（$`e, a, b`$ の順）。これは $`D_1 \oplus D_2 \oplus D_3`$ の指標 $`(1+1+1,\ 1+\omega+\omega^2,\ 1+\omega^2+\omega) = (3, 0, 0)`$ と一致する。
+
+## [定理] 既約表現の指標の直交性
+$`G`$ を有限群とする。$`G`$ 上の関数 $`\chi, \psi`$ に対して、内積を次で定める。
+
+```math
+\langle \chi, \psi \rangle = \frac{1}{\lvert G \rvert} \sum_{g \in G} \chi(g)^* \, \psi(g)
+```
+
+$`D_j, D_k`$ を既約表現とし、その指標を $`\chi_j, \chi_k`$ とする。このとき次が成り立つ。
+
+```math
+\langle \chi_j, \chi_k \rangle =
+\begin{cases}
+1 & (D_j \simeq D_k) \\
+0 & (D_j \not\simeq D_k)
+\end{cases}
+```
+
+- 証明：後で（TODO、Schur の補題を使う。Georgi 1章）。
+
+## [例] $`Z_3`$ の指標の直交性
+$`Z_3 = \lbrace e, a, a^2 \rbrace`$ の既約表現を再掲する（上の [例] $`Z_3`$ の複数の表現とその対角化 の表1）。$`\omega = e^{2\pi i/3}`$。
+
+表：$`Z_3`$ の既約表現
+
+| 表現 | $`e`$ | $`a`$ | $`a^2`$ |
+|:-:|:-:|:-:|:-:|
+| $`D_1`$ | $`1`$ | $`1`$ | $`1`$ |
+| $`D_2`$ | $`1`$ | $`\omega`$ | $`\omega^2`$ |
+| $`D_3`$ | $`1`$ | $`\omega^2`$ | $`\omega`$ |
+
+どれも1次元なので、$`D_k(g)`$ は $`1 \times 1`$ 行列であり、そのトレースは成分そのものである。したがって指標 $`\chi_k(g) = \mathrm{tr}\, D_k(g)`$ の表は、値としては上の表と同じになる。
+
+表：$`Z_3`$ の指標
+
+| 指標 | $`e`$ | $`a`$ | $`a^2`$ |
+|:-:|:-:|:-:|:-:|
+| $`\chi_1`$ | $`1`$ | $`1`$ | $`1`$ |
+| $`\chi_2`$ | $`1`$ | $`\omega`$ | $`\omega^2`$ |
+| $`\chi_3`$ | $`1`$ | $`\omega^2`$ | $`\omega`$ |
+
+計算で使う関係式：
+- $`\omega^3 = 1`$ なので、$`\omega^* = \omega^{-1} = \omega^2`$、$`(\omega^2)^* = \omega`$、$`\lvert \omega \rvert = 1`$。
+- $`(\omega - 1)(1 + \omega + \omega^2) = \omega^3 - 1 = 0`$ と $`\omega \neq 1`$ より、$`1 + \omega + \omega^2 = 0`$。
+
+$`\lvert Z_3 \rvert = 3`$ として、内積を全て計算する。
+
+```math
+\begin{aligned}
+\langle \chi_1, \chi_1 \rangle &= \tfrac{1}{3}(1 + 1 + 1) = 1 \\
+\langle \chi_2, \chi_2 \rangle &= \tfrac{1}{3}(1 + \omega^* \omega + (\omega^2)^* \omega^2) = \tfrac{1}{3}(1 + 1 + 1) = 1 \\
+\langle \chi_3, \chi_3 \rangle &= \tfrac{1}{3}(1 + (\omega^2)^* \omega^2 + \omega^* \omega) = \tfrac{1}{3}(1 + 1 + 1) = 1 \\
+\langle \chi_1, \chi_2 \rangle &= \tfrac{1}{3}(1 + \omega + \omega^2) = 0 \\
+\langle \chi_1, \chi_3 \rangle &= \tfrac{1}{3}(1 + \omega^2 + \omega) = 0 \\
+\langle \chi_2, \chi_3 \rangle &= \tfrac{1}{3}(1 + \omega^* \omega^2 + (\omega^2)^* \omega) = \tfrac{1}{3}(1 + \omega^2 \cdot \omega^2 + \omega \cdot \omega) = \tfrac{1}{3}(1 + \omega + \omega^2) = 0
+\end{aligned}
+```
+
+残りは $`\langle \psi, \chi \rangle = \langle \chi, \psi \rangle^*`$ から決まる（例：$`\langle \chi_2, \chi_1 \rangle = 0^* = 0`$）。まとめると：
+
+表：$`Z_3`$ の指標の内積 $`\langle \chi_j, \chi_k \rangle`$
+
+| | $`\chi_1`$ | $`\chi_2`$ | $`\chi_3`$ |
+|:-:|:-:|:-:|:-:|
+| $`\chi_1`$ | $`1`$ | $`0`$ | $`0`$ |
+| $`\chi_2`$ | $`0`$ | $`1`$ | $`0`$ |
+| $`\chi_3`$ | $`0`$ | $`0`$ | $`1`$ |
+
+3つの既約表現はどの2つも同値でないので、定理のとおり異なる指標どうしの内積は $`0`$、同じ指標どうしは $`1`$ になっている。
