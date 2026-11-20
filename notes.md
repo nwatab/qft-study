@@ -139,13 +139,35 @@ A \otimes B = \begin{pmatrix} a_{11} B & \cdots & a_{1m} B \\ \vdots & \ddots & 
 
 - 定義から $`(A \otimes B)(C \otimes D) = AC \otimes BD`$。
 
-$`D_1`$ を $`V_1`$ 上の表現、$`D_2`$ を $`V_2`$ 上の表現とする。$`D_1 \otimes D_2`$ は、次で定まる $`V_1 \otimes V_2`$ 上の表現である。
+物理の文献では、上のクロネッカー積の行列（$`A`$ の各成分 $`a_{ij}`$ に $`B`$ を掛けて並べたもの）を $`A \otimes B`$ の定義として書くことが多い。しかし定義は $`(A \otimes B)(v \otimes w) = Av \otimes Bw`$ のほうで、クロネッカー積は基底を特定の順に並べたときの行列表示にすぎない。
+
+例えば $`m = n = 2`$ とする。基底を $`e_1 \otimes f_1,\ e_2 \otimes f_1,\ e_1 \otimes f_2,\ e_2 \otimes f_2`$ の順（$`f`$ の添字を外側）に並べると、同じ $`A \otimes B`$ の行列は $`B`$ の各成分に $`A`$ を掛けた形になる。
+
+```math
+\begin{pmatrix} b_{11} A & b_{12} A \\ b_{21} A & b_{22} A \end{pmatrix}
+```
+
+2つの行列は、基底の2番目と3番目を入れ替える置換行列 $`P`$ で $`P^{-1} M P = M'`$ と移り合う。$`(A \otimes B)(C \otimes D) = AC \otimes BD`$ や、後で見るトレースの性質は、どちらの並べ方でも成り立つ。
+
+### [定義] テンソル積表現
+$`D_1`$ を $`V_1`$ 上の表現、$`D_2`$ を $`V_2`$ 上の表現とする。テンソル積表現 $`D_1 \otimes D_2`$ は、次で定まる $`V_1 \otimes V_2`$ 上の表現である。
 
 ```math
 (D_1 \otimes D_2)(g) = D_1(g) \otimes D_2(g)
 ```
 
+$`V_1`$ の基底を $`e_1, \dots, e_m`$、$`V_2`$ の基底を $`f_1, \dots, f_n`$ とする。$`V_1 \otimes V_2`$ の基底 $`e_j \otimes f_x`$ は組 $`(j, x)`$ で番号付けられ、全部で $`m \times n`$ 個ある。この基底での行列要素は、$`D_1(g)`$ と $`D_2(g)`$ の行列要素の積になる（Georgi (1.105)）。
+
+```math
+\big[(D_1 \otimes D_2)(g)\big]_{(j,x),(k,y)} = [D_1(g)]_{jk}\, [D_2(g)]_{xy}
+```
+
+$`A \otimes B`$ の定義とベクトルのテンソル積の展開から、$`(A \otimes B)(e_k \otimes f_y) = Ae_k \otimes Bf_y = \sum_{j,x} A_{jk} B_{xy}\, e_j \otimes f_x`$ となることによる。
+
+補足：
 - 表現であること：$`(D_1 \otimes D_2)(e) = I \otimes I = I`$、$`(D_1(g) \otimes D_2(g))(D_1(h) \otimes D_2(h)) = D_1(gh) \otimes D_2(gh)`$。
+- Georgi はブラケットで $`\langle j, x \rvert D_{D_1 \otimes D_2}(g) \lvert k, y \rangle = \langle j \rvert D_1(g) \lvert k \rangle \langle x \rvert D_2(g) \lvert y \rangle`$ と書く。
+- 一般には既約でない。例：[例] $`S_3`$ の表現とその規約分解 の #4 で $`\mathbf{2} \otimes \mathbf{2} = \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$。テンソル積表現を既約表現に分解することが、以降の主な作業になる。
 - 物理では、2つの系を合わせた系（例：2粒子）に対応する。物理の文献ではテンソル積表現を「直積表現（direct product representation）」と呼ぶこともある。
 
 ### [定義] 完全可約
@@ -490,6 +512,23 @@ $`G`$ の表現 $`(V, D)`$ に対して、$`G`$ 上の関数
 
 例：$`Z_3`$ の正則表現（上の [例] $`Z_3`$ の正則表現）では $`D(a), D(b)`$ の対角成分が全て $`0`$ なので、$`\chi = (3, 0, 0)`$（$`e, a, b`$ の順）。これは $`D_1 \oplus D_2 \oplus D_3`$ の指標 $`(1+1+1,\ 1+\omega+\omega^2,\ 1+\omega^2+\omega) = (3, 0, 0)`$ と一致する。
 
+### [定理] テンソル積表現の指標は積
+$`D_1, D_2`$ を $`G`$ の表現とする。
+
+```math
+\chi_{D_1 \otimes D_2}(g) = \chi_{D_1}(g)\, \chi_{D_2}(g)
+```
+
+証明：$`A = D_1(g)`$、$`B = D_2(g)`$ とする。[定義] テンソル積表現 の行列要素の式で $`(j, x) = (k, y)`$ とおき、対角成分を足す。
+
+```math
+\mathrm{tr}(A \otimes B) = \sum_{j, x} A_{jj} B_{xx} = \Big(\sum_j A_{jj}\Big)\Big(\sum_x B_{xx}\Big) = \mathrm{tr}\, A \cdot \mathrm{tr}\, B
+```
+
+直和の指標は和（[定義] 指標 の性質3）、テンソル積の指標は積になる。$`\dim`$ が和・積になることと対応している（$`g = e`$ とおくと $`\chi(e) = \dim V`$）。
+
+例：[例] $`S_3`$ の指標の直交性 の表で、$`\chi_{\mathbf{2}}`$ は $`e, a_1, a_2, a_3, a_4, a_5`$ の順に $`(2, -1, -1, 0, 0, 0)`$ である。2乗すると $`(4, 1, 1, 0, 0, 0)`$ となり、$`\chi_{\mathbf{1}} + \chi_{\mathbf{1}'} + \chi_{\mathbf{2}} = (1+1+2,\ 1+1-1,\ 1+1-1,\ 1-1+0,\ 1-1+0,\ 1-1+0)`$ と一致する。これは $`\mathbf{2} \otimes \mathbf{2} = \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2}`$（[例] $`S_3`$ の表現とその規約分解 の #4）と整合する。
+
 ### [定理] 既約表現の指標の直交性
 $`G`$ を有限群とする。$`G`$ 上の関数 $`\chi, \psi`$ に対して、内積を次で定める。
 
@@ -600,6 +639,79 @@ $`\lvert S_3 \rvert = 6`$ とする。内積は $`3 \times 3 = 9`$ 通りある�
 ```
 
 $`Z_3`$ と同じく、内積の表は単位行列になり、3つの既約表現の指標は直交している。
+
+### [例] 正三角形のバネ系の変位
+Georgi 1.16 の例。同じ質量の3つのブロックが、同じバネで正三角形につながっている。ブロックは平面上を摩擦なく動く。ブロックのサイト $`1, 2, 3`$ は、[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の頂点 $`v_1, v_2, v_3`$（角度 $`30^\circ, 150^\circ, 270^\circ`$）に置く。
+
+![正三角形のバネ系](figures/spring-triangle.svg)
+
+ここで考えるのは、系の配置と、$`g \in S_3`$ が配置をどう動かすかだけである。運動方程式は使わない。
+
+配置は、各サイトのブロックの変位（平面の矢印）$`r_1, r_2, r_3`$ で決まる。これを基底で書くために、次を用意する。
+
+- サイト：$`\lvert 1\rangle, \lvert 2\rangle, \lvert 3\rangle`$。$`D_{\mathrm{perm}}(g)\lvert j\rangle = \lvert g(j)\rangle`$（[例] $`S_3`$ の表現とその規約分解 の $`D_{\mathrm{perm}}`$）。
+- 向き：$`e_x, e_y`$（[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の $`e_1, e_2`$）。$`D_{\mathbf{2}}(g)`$ が回転・鏡映として作用する。一般の式では $`e_\mu`$（$`\mu = x, y`$）と書く。
+- $`\lvert j\rangle \otimes e_\mu`$：サイト $`j`$ のブロックが $`\mu`$ 方向にずれた状態。$`3 \times 2 = 6`$ 本あり、$`V = ℂ^3 \otimes ℂ^2`$ の基底になる。
+
+三角形ごと $`g`$ で回したり裏返したりすると、2つのことが同時に起きる。サイト $`j`$ のブロックはサイト $`g(j)`$ へ移り、その矢印の向きも $`D_{\mathbf{2}}(g)`$ で回る。
+
+```math
+D(g)\big(\lvert j\rangle \otimes e_\mu\big) = D_{\mathrm{perm}}(g)\lvert j\rangle \otimes D_{\mathbf{2}}(g)\, e_\mu = \lvert g(j)\rangle \otimes D_{\mathbf{2}}(g)\, e_\mu
+```
+
+つまり $`D = D_{\mathrm{perm}} \otimes D_{\mathbf{2}}`$ である。行列要素は [定義] テンソル積表現 の式から（Georgi (1.110)）、
+
+```math
+[D(g)]_{(j,\mu),(k,\nu)} = [D_{\mathrm{perm}}(g)]_{jk}\, [D_{\mathbf{2}}(g)]_{\mu\nu}
+```
+
+$`D_{\mathrm{perm}}`$ と $`D_{\mathbf{2}}`$ は、同じ幾何学的操作を表すように揃えておく必要がある。これは物理から入る条件である。[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の表で $`D_{\mathbf{2}}(g) v_i = v_{g(i)}`$ となっているので、揃っている。例えば $`a_1`$ は、サイトを $`1 \to 2 \to 3 \to 1`$ と移し、矢印を $`+120^\circ`$ 回す。
+
+基底を $`\lvert 1\rangle \otimes e_x,\ \lvert 1\rangle \otimes e_y,\ \lvert 2\rangle \otimes e_x, \dots, \lvert 3\rangle \otimes e_y`$ の順（Georgi (1.108) の $`x_1, y_1, x_2, y_2, x_3, y_3`$）に並べる。$`R = D_{\mathbf{2}}(a_1)`$ とおくと、$`D(a_1)`$ は $`D_{\mathrm{perm}}(a_1)`$ の $`1`$ の位置に $`R`$ を置いた行列になる（Georgi (1.111)）。
+
+```math
+D_{\mathrm{perm}}(a_1) = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}, \quad
+D(a_1) = \begin{pmatrix} 0 & 0 & R \\ R & 0 & 0 \\ 0 & R & 0 \end{pmatrix}, \quad
+R = \begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}
+```
+
+指標は [定理] テンソル積表現の指標は積 から求まる（Georgi (1.113), (1.114)）。$`\chi_{\mathrm{perm}}(g)`$ は $`g`$ で動かないサイトの数である。
+
+表：正三角形のバネ系の指標
+
+| $`g`$ | $`\chi_{\mathrm{perm}}(g)`$ | $`\chi_{\mathbf{2}}(g)`$ | $`\chi_D(g)`$ |
+|:-:|:-:|:-:|:-:|
+| $`e`$ | $`3`$ | $`2`$ | $`6`$ |
+| $`a_1`$ | $`0`$ | $`-1`$ | $`0`$ |
+| $`a_2`$ | $`0`$ | $`-1`$ | $`0`$ |
+| $`a_3`$ | $`1`$ | $`0`$ | $`0`$ |
+| $`a_4`$ | $`1`$ | $`0`$ | $`0`$ |
+| $`a_5`$ | $`1`$ | $`0`$ | $`0`$ |
+
+$`D \simeq \bigoplus_a m_a D_a`$ と分解すると、直和の指標は和なので $`\chi_D = \sum_a m_a \chi_a`$。[定理] 既約表現の指標の直交性 より $`m_a = \langle \chi_a, \chi_D \rangle`$ である。
+
+```math
+m_{\mathbf{1}} = \tfrac{1}{6} \cdot 6 = 1, \quad
+m_{\mathbf{1}'} = \tfrac{1}{6} \cdot 6 = 1, \quad
+m_{\mathbf{2}} = \tfrac{1}{6} \cdot 2 \cdot 6 = 2
+```
+
+したがって $`D \simeq \mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2} \oplus \mathbf{2}`$ で、正則表現（[例] $`S_3`$ の表現とその規約分解 の #7）と同じ分解になる。
+
+補足：[例] $`S_3`$ の表現とその規約分解 の #6 も $`ℂ^3 \otimes ℂ^2`$ 上の表現 $`D_{\mathrm{perm}} \otimes I_2`$ だった。違いは、2成分の部分が $`g`$ で回るかどうかだけである。#6 の2成分は2準位で、$`g`$ では変わらない。この例の2成分は平面の矢印で、$`g`$ で回る。
+
+表：#6 とこの例の指標
+
+| $`g`$ | $`\chi_{\mathrm{perm}}(g) \cdot \mathrm{tr}\, I_2`$（#6） | $`\chi_{\mathrm{perm}}(g)\, \chi_{\mathbf{2}}(g)`$（この例） |
+|:-:|:-:|:-:|
+| $`e`$ | $`6`$ | $`6`$ |
+| $`a_1`$ | $`0`$ | $`0`$ |
+| $`a_2`$ | $`0`$ | $`0`$ |
+| $`a_3`$ | $`2`$ | $`0`$ |
+| $`a_4`$ | $`2`$ | $`0`$ |
+| $`a_5`$ | $`2`$ | $`0`$ |
+
+#6 は $`\mathbf{1} \oplus \mathbf{1} \oplus \mathbf{2} \oplus \mathbf{2}`$、この例は $`\mathbf{1} \oplus \mathbf{1}' \oplus \mathbf{2} \oplus \mathbf{2}`$ に分解する。同じ6次元の空間でも、$`g`$ が何をどう動かすかという物理的な対応によって、表現が変わる。
 
 ## 群上の関数の展開
 
