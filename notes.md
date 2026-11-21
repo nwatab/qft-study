@@ -52,7 +52,37 @@ $`V`$ 上の $`G`$ の表現 $`D`$ と $`D'`$ は、次を満たすとき同値�
 - $`V`$ 上の $`D`$ と $`V'`$ 上の $`D'`$ が同値であるには、可逆な線形写像 $`S: V' \to V`$ が必要で、それは $`\dim V = \dim V'`$ のときにしか存在しない。
   したがって、次元の異なる表現は同値にならない。
 
+### [定義] 群の作用
+$`X`$ を集合とする。$`G`$ の $`X`$ への作用とは、各 $`g \in G`$ に写像 $`X \to X`$ を対応させるもので、次を満たすものである。$`x \in X`$ の行き先を $`g(x)`$ と書く。
+
+- C1 : $`\forall x \in X,\ e(x) = x`$
+- C2 : $`\forall g_1, g_2 \in G,\ \forall x \in X,\ g_1(g_2(x)) = (g_1 g_2)(x)`$
+
+表現の B1, B2 と同じ形だが、$`X`$ はただの集合で、和もスカラー倍もない。したがって線形性も基底もない。
+
+群は群表（積）だけで決まる。作用はそれに加えて選ぶもので、同じ群の同じ集合への作用は一つとは限らない（[例] $`S_3`$ の補足）。
+
+### [定義] 置換表現
+$`G`$ が有限集合 $`X`$ に作用しているとする。$`X`$ の元 $`x`$ ごとに基底 $`\lvert x\rangle`$ を1本ずつ用意したベクトル空間を $`V`$ とする。$`\dim V = \lvert X \rvert`$ である。置換表現とは、次で定まる $`V`$ 上の表現である。
+
+```math
+D(g)\lvert x\rangle = \lvert g(x)\rangle
+```
+
+表現であること：基底への作用で線形演算子が決まるので、基底で確かめればよい。
+- B1：$`D(e)\lvert x\rangle = \lvert e(x)\rangle = \lvert x\rangle`$（C1）。
+- B2：$`D(g_1)D(g_2)\lvert x\rangle = D(g_1)\lvert g_2(x)\rangle = \lvert g_1(g_2(x))\rangle = \lvert (g_1 g_2)(x)\rangle = D(g_1 g_2)\lvert x\rangle`$（C2）。
+
+$`D(g)`$ は基底を基底に写すので、行列は各列に $`1`$ がちょうど1つある置換行列になる。
+
+置換表現ができるまでには3つの段階がある。基底が入ってくるのは3番目である。
+1. 群：群表だけで決まる。$`g`$ はまだ何も動かさない。
+2. 集合 $`X`$ への作用：$`g(x)`$ を決める。まだベクトル空間ではない。
+3. 置換表現：$`X`$ の元に基底 $`\lvert x\rangle`$ を対応させ、$`D(g)\lvert x\rangle = \lvert g(x)\rangle`$ とする。
+
 ### [定義] 正則表現
+[定義] 置換表現 で、$`X = G`$、作用を左からの積 $`g_2(g_1) = g_2 g_1`$ としたもの。C1, C2 は群の公理 A3, A2 から成り立つ。
+
 - $`\lbrace \lvert g\rangle \mid g \in G \rbrace`$ は $`V`$ の正規直交基底。したがって $`\dim V = \lvert G\rvert`$
 - $`\forall g_1, g_2 \in G,\ D(g_2)\lvert g_1\rangle = \lvert g_2 g_1\rangle`$
 
@@ -295,6 +325,8 @@ a_1 = (1,2,3),\ a_2 = (3,2,1),\ a_3 = (1,2),\ a_4 = (2,3),\ a_5 = (3,1)
 - 記法：$`(i, j, k)`$ は、位置 $`i`$ の物を $`j`$ へ、$`j`$ の物を $`k`$ へ、$`k`$ の物を $`i`$ へ移す。$`(i, j)`$ は位置 $`i`$ と $`j`$ の物を入れ替える。
 - 積：$`gh`$ = 先に $`h`$、次に $`g`$。
 
+補足：ここでは $`S_3`$ を3つの位置の置換として定義したので、$`a_1(1) = 2`$ のような $`\lbrace 1, 2, 3 \rbrace`$ への作用（[定義] 群の作用）が最初から入っている。下の群表は、その置換の合成から計算したものである。群としては群表だけで決まり、作用は別に選べる。例えば位置 $`2`$ と $`3`$ のラベルを入れ替えると、$`a_1`$ が $`1 \to 3 \to 2 \to 1`$ と写す作用になるが、これも同じ群表を満たす。
+
 
 
 群表：
@@ -388,7 +420,7 @@ $`\mathbf{2}`$ の各行列は [例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 �
 以下で使う記号と規約：
 - $`D_{\mathbf{2}}(g)`$：$`\mathbf{2}`$ の行列（[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現の表の $`D(g)`$ 列）。
 - $`D_{\mathbf{1}'}(g)`$：$`e, a_1, a_2`$ で $`1`$、$`a_3, a_4, a_5`$ で $`-1`$。
-- $`D_{\mathrm{perm}}(g)`$：$`3 \times 3`$ の置換行列。$`D_{\mathrm{perm}}(g)\, e_i = e_{g(i)}`$（$`e_i`$ = 頂点 $`i`$ にいる状態）。
+- $`D_{\mathrm{perm}}(g)`$：$`\lbrace 1, 2, 3 \rbrace`$ への作用の置換表現（[定義] 置換表現）。$`D_{\mathrm{perm}}(g)\, e_i = e_{g(i)}`$（$`e_i`$ = 頂点 $`i`$ にいる状態）。
 - $`X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}`$（2つの基底の入れ替え）。
 - $`ℂ^4 = ℂ^2 \otimes ℂ^2`$ の基底の順序：$`e_1 \otimes e_1,\ e_1 \otimes e_2,\ e_2 \otimes e_1,\ e_2 \otimes e_2`$。
 
@@ -649,11 +681,55 @@ Georgi 1.16 の例。同じ質量の3つのブロックが、同じバネで正�
 
 配置は、各サイトのブロックの変位（平面の矢印）$`r_1, r_2, r_3`$ で決まる。これを基底で書くために、次を用意する。
 
-- サイト：$`\lvert 1\rangle, \lvert 2\rangle, \lvert 3\rangle`$。$`D_{\mathrm{perm}}(g)\lvert j\rangle = \lvert g(j)\rangle`$（[例] $`S_3`$ の表現とその規約分解 の $`D_{\mathrm{perm}}`$）。
-- 向き：$`e_x, e_y`$（[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の $`e_1, e_2`$）。$`D_{\mathbf{2}}(g)`$ が回転・鏡映として作用する。一般の式では $`e_\mu`$（$`\mu = x, y`$）と書く。
+- サイト：$`\lvert 1\rangle, \lvert 2\rangle, \lvert 3\rangle`$。
+- 向き：$`e_x, e_y`$（[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の $`e_1, e_2`$）。一般の式では $`e_\mu`$（$`\mu = x, y`$）と書く。
 - $`\lvert j\rangle \otimes e_\mu`$：サイト $`j`$ のブロックが $`\mu`$ 方向にずれた状態。$`3 \times 2 = 6`$ 本あり、$`V = ℂ^3 \otimes ℂ^2`$ の基底になる。
 
-三角形ごと $`g`$ で回したり裏返したりすると、2つのことが同時に起きる。サイト $`j`$ のブロックはサイト $`g(j)`$ へ移り、その矢印の向きも $`D_{\mathbf{2}}(g)`$ で回る。
+サイトへの作用は、ブロックがどのサイトへ移るかを表す。例えば $`a_1 = (1,2,3)`$ は
+
+```math
+\begin{aligned}
+1 &\to 2 \\
+2 &\to 3 \\
+3 &\to 1
+\end{aligned}
+```
+
+と写すので、
+
+```math
+\begin{aligned}
+D_{\mathrm{perm}}(a_1)\lvert 1\rangle &= \lvert a_1(1)\rangle = \lvert 2\rangle \\
+D_{\mathrm{perm}}(a_1)\lvert 2\rangle &= \lvert a_1(2)\rangle = \lvert 3\rangle \\
+D_{\mathrm{perm}}(a_1)\lvert 3\rangle &= \lvert a_1(3)\rangle = \lvert 1\rangle
+\end{aligned}
+```
+
+$`a_3 = (1,2)`$ は
+
+```math
+\begin{aligned}
+1 &\to 2 \\
+2 &\to 1 \\
+3 &\to 3
+\end{aligned}
+```
+
+と写すので、
+
+```math
+\begin{aligned}
+D_{\mathrm{perm}}(a_3)\lvert 1\rangle &= \lvert a_3(1)\rangle = \lvert 2\rangle \\
+D_{\mathrm{perm}}(a_3)\lvert 2\rangle &= \lvert a_3(2)\rangle = \lvert 1\rangle \\
+D_{\mathrm{perm}}(a_3)\lvert 3\rangle &= \lvert a_3(3)\rangle = \lvert 3\rangle
+\end{aligned}
+```
+
+一般に $`D_{\mathrm{perm}}(g)\lvert j\rangle = \lvert g(j)\rangle`$ である。これはサイトの集合 $`\lbrace 1, 2, 3 \rbrace`$ への作用の置換表現（[定義] 置換表現、[例] $`S_3`$ の表現とその規約分解 の #2）で、既約ではなく $`\mathbf{1} \oplus \mathbf{2}`$ に分解する。
+
+向きへの作用は $`D_{\mathbf{2}}(g)`$ で、平面の回転・鏡映である。例えば $`a_1`$ は $`+120^\circ`$ 回転なので $`D_{\mathbf{2}}(a_1)\, e_x = -\tfrac12 e_x + \tfrac{\sqrt3}{2} e_y`$、$`a_3`$ は $`v_3`$ を通る直線（$`y`$ 軸）での鏡映なので $`D_{\mathbf{2}}(a_3)\, e_x = -e_x`$、$`D_{\mathbf{2}}(a_3)\, e_y = e_y`$。
+
+三角形ごと $`g`$ で回したり裏返したりすると、2つのことが同時に起きる。サイト $`j`$ のブロックはサイト $`g(j)`$ へ移り、その矢印の向きも $`D_{\mathbf{2}}(g)`$ で回る。この操作を表す $`V`$ 上の線形演算子を $`D(g)`$ と書く。基底への作用は次のようになる。
 
 ```math
 D(g)\big(\lvert j\rangle \otimes e_\mu\big) = D_{\mathrm{perm}}(g)\lvert j\rangle \otimes D_{\mathbf{2}}(g)\, e_\mu = \lvert g(j)\rangle \otimes D_{\mathbf{2}}(g)\, e_\mu
@@ -665,7 +741,7 @@ D(g)\big(\lvert j\rangle \otimes e_\mu\big) = D_{\mathrm{perm}}(g)\lvert j\rangl
 [D(g)]_{(j,\mu),(k,\nu)} = [D_{\mathrm{perm}}(g)]_{jk}\, [D_{\mathbf{2}}(g)]_{\mu\nu}
 ```
 
-$`D_{\mathrm{perm}}`$ と $`D_{\mathbf{2}}`$ は、同じ幾何学的操作を表すように揃えておく必要がある。これは物理から入る条件である。[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の表で $`D_{\mathbf{2}}(g) v_i = v_{g(i)}`$ となっているので、揃っている。例えば $`a_1`$ は、サイトを $`1 \to 2 \to 3 \to 1`$ と移し、矢印を $`+120^\circ`$ 回す。
+$`D_{\mathrm{perm}}`$ と $`D_{\mathbf{2}}`$ は、同じ幾何学的操作を表すように揃えておく必要がある。$`D_{\mathrm{perm}}`$ は、サイトの集合 $`\lbrace 1, 2, 3 \rbrace`$ への作用 $`j \mapsto g(j)`$ から作った。一方 $`D_{\mathbf{2}}(g)`$ は頂点 $`v_1, v_2, v_3`$ を入れ替えるので、これも $`\lbrace 1, 2, 3 \rbrace`$ への作用を1つ決める。この2つの作用が一致していなければならない。作用は群表からは決まらない（[例] $`S_3`$ の補足）ので、これは物理（サイトの実際の配置）から入る条件である。[例] $`S_3`$ の $`\mathbb{C}^2`$ 上の表現 の表で $`D_{\mathbf{2}}(g) v_i = v_{g(i)}`$ となっているので、2つの作用は一致している。例えば $`a_1`$ は、サイトを $`1 \to 2 \to 3 \to 1`$ と移し、矢印を $`+120^\circ`$ 回す。
 
 基底を $`\lvert 1\rangle \otimes e_x,\ \lvert 1\rangle \otimes e_y,\ \lvert 2\rangle \otimes e_x, \dots, \lvert 3\rangle \otimes e_y`$ の順（Georgi (1.108) の $`x_1, y_1, x_2, y_2, x_3, y_3`$）に並べる。$`R = D_{\mathbf{2}}(a_1)`$ とおくと、$`D(a_1)`$ は $`D_{\mathrm{perm}}(a_1)`$ の $`1`$ の位置に $`R`$ を置いた行列になる（Georgi (1.111)）。
 
